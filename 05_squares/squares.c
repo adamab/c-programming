@@ -1,10 +1,22 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
+int max (int num1, int num2) {
+  //check if num1 is greater than num2
+  if (num1 > num2) {
+    //if so, your answer is num1
+      return num1;
+    }
+    //otherwise, your answer is num2
+  else {
+    return num2;
+  }
+}
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
   //compute the max of size1 and (x_offset + size2).  Call this w
-  int w = max(size1, (x_offset+size2)); //Need to create a max function
+  int w = max(size1, (x_offset+size2)); //Need to create a max function; used previous implementation of max from code1.c in project 2
   //compute the max of size1 and (y_offset + size2).  Call this h
   int h = max(size1, (y_offset + size2));
   //count from 0 to h. Call the number you count with y
