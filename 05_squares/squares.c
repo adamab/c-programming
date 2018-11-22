@@ -45,8 +45,8 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       //    ((y is between y_offset and y_offset + size2) AND
       //     x is equal to either x_offset OR x_offset + size2 -1)
       // if so, print a *
-      if ((between(x, x_offset, x_offset+size2) & (y==y_offset | y==(y_offset+size2-1))) |//Need to create a between function
-	  (between(y, y_offset, y_offset+size2) & (x==x_offset | x==(x_offset+size2-1)))){
+      if ((between(x, x_offset, x_offset+size2) & ((y==y_offset) | (y==(y_offset+size2-1)))) |//Need to create a between function
+	  (between(y, y_offset, y_offset+size2) & ((x==x_offset) | (x==(x_offset+size2-1))))){
 	printf("*");
       }
       //if not,
@@ -55,7 +55,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       // OR
       //    y is less than size1 AND (x is either 0 or size1-1)
       //if so, print a #
-      if ((x<size1 & (y==0 | y==(size1-1))) | (y<size1 & (x==0 | x==(size1-1)))){
+      if (((x<size1) & ((y==0) | (y==(size1-1)))) | ((y<size1) & ((x==0) | (x==(size1-1))))){
 	printf("#");
       }
       //else print a space
