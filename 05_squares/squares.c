@@ -56,7 +56,9 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       }
       //else print a space
       else { printf(" ");}
+    }
     //when you finish counting x from 0 to w, 
     //print a newline
       printf("\n");
+  }
 }
