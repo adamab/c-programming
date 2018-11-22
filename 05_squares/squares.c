@@ -4,9 +4,9 @@
 
 int between(int checknum, int lowerbound, int upperbound) {
   //Check if checknum is greater than or equal to lowerbound
-  if(checknum >= lowerbound){
+  if(checknum > lowerbound){
     //If so, check if check num is less than or equal to upperbound
-    if(checknum <= upperbound){
+    if(checknum < upperbound){
       //If so, return 1
       return 1;
     }
