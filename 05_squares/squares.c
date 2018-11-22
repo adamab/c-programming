@@ -51,7 +51,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
       // OR
       //    y is less than size1 AND (x is either 0 or size1-1)
       //if so, print a #
-      if (((x<size1) & ((y==0) | (y==(size1-1)))) | ((y<size1) & ((x==0) | (x==(size1-1))))){
+      else if (((x<size1) & ((y==0) | (y==(size1-1)))) | ((y<size1) & ((x==0) | (x==(size1-1))))){
 	printf("#");
       }
       //else print a space
