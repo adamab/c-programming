@@ -2,6 +2,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int between(int checknum, int lowerbound, int upperbound) {
+  //Check if checknum is greater than or equal to lowerbound
+  if(checknum >= lowerbound){
+    //If so, check if check num is less than or equal to upperbound
+    if(checknum <= upperbound){
+      //If so, return 1
+      return 1;
+    }
+  }
+  //Else, return 0
+  else{
+    return 0;
+  }
+}
+
 int max (int num1, int num2) {
   //check if num1 is greater than num2
   if (num1 > num2) {
