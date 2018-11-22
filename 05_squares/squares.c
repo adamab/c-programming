@@ -12,9 +12,7 @@ int between(int checknum, int lowerbound, int upperbound) {
     }
   }
   //Else, return 0
-  else{
-    return 0;
-  }
+  return 0;
 }
 
 int max (int num1, int num2) {
@@ -24,9 +22,7 @@ int max (int num1, int num2) {
       return num1;
     }
     //otherwise, your answer is num2
-  else {
-    return num2;
-  }
+  return num2;
 }
 
 void squares(int size1, int x_offset, int y_offset, int size2) {
