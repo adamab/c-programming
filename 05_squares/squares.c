@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 int between(int checknum, int lowerbound, int upperbound) {
-  //Check if checknum is greater than or equal to lowerbound
-  if(checknum > lowerbound){
-    //If so, check if check num is less than or equal to upperbound
+  //Check if checknum is greater than lowerbound
+  if(checknum >= lowerbound){
+    //If so, check if check num is less than upperbound
     if(checknum < upperbound){
       //If so, return 1
       return 1;
@@ -29,7 +29,7 @@ void squares(int size1, int x_offset, int y_offset, int size2) {
   //compute the max of size1 and (x_offset + size2).  Call this w
   int w = max(size1, (x_offset+size2)); //Need to create a max function; used previous implementation of max from code1.c in project 2
   //compute the max of size1 and (y_offset + size2).  Call this h
-  int h = max(size1, (y_offset + size2));
+  int h = max(size1, (y_offset+size2));
   //count from 0 to h. Call the number you count with y
   for (int y=0; y<h; y++){
     //count from 0 to w. Call the number you count with x
