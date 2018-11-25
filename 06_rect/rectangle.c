@@ -53,9 +53,10 @@ rectangle intersection(rectangle r1, rectangle r2) {
   //Set r.height to the difference of minimum of r1.y+r1.height and r2.y+r2.height and r.y
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
   //Check if the sum of r.width and r.height is 0
-  if(r.height+r.width=0){
+  if((r.height+r.width)==0){
     //If so, then return "No Such Rectangle"
-    return "no such rectangle";
+    printf("no such rectangle");
+    break;
   }
   //Return r
   return r;
