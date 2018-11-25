@@ -38,7 +38,27 @@ rectangle canonicalize(rectangle r) {
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  return r1;
+  //Set r1 to canonicalize r1
+  r1 = canonicalize(r1);
+  //Set r2 to canonicalize r2
+  r2=canonicalize(r2);
+  //Create an empty rectangel called r
+  rectangel r = {};
+  //Set r.x to maximum of r1.x and r2.x
+  r.x = max(r1.x, r1.x);
+  //Set r.y to maximum of r1.y and r2.y
+  r.y=max(r1.y, r2.y);
+  //Set r.width to the difference of minimum of r1.x+r1.width and r2.x+r2.width and r.x
+  r.width=(min((r1.x+r1.width), (r2.x+r2.width))-r.x);
+  //Set r.height to the difference of minimum of r1.y+r1.height and r2.y+r2.height and r.y
+  r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
+  //Check if the sum of r.width and r.height is 0
+  if(r.height+r.width=0){
+    //If so, then return "No Such Rectangle"
+    return "no such rectangle";
+  }
+  //Return r
+  return r;
 }
 
 //You should not need to modify any code below this line
