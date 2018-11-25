@@ -55,8 +55,8 @@ rectangle intersection(rectangle r1, rectangle r2) {
   //Check if the sum of r.width and r.height is 0
   if((r.height+r.width)==0){
     //If so, then return "No Such Rectangle"
-    printf("no such rectangle");
-    break;
+    printf("no intersection");
+    return void;
   }
   //Return r
   return r;
