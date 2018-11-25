@@ -21,8 +21,8 @@ struct rect_struct {
   int y;
   int width;
   int height;
-}
-  typedef struct rect_struct rectangle;
+};
+typedef struct rect_struct rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
