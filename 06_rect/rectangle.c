@@ -43,7 +43,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   //Set r2 to canonicalize r2
   r2=canonicalize(r2);
   //Create an empty rectangel called r
-  rectanglez r;
+  rectangle r;
   //Set r.x to maximum of r1.x and r2.x
   r.x = max(r1.x, r1.x);
   //Set r.y to maximum of r1.y and r2.y
