@@ -52,14 +52,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   r.width=(min((r1.x+r1.width), (r2.x+r2.width))-r.x);
   //Set r.height to the difference of minimum of r1.y+r1.height and r2.y+r2.height and r.y
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
-  //Check if the sum of r.width and r.height is 0
-  if((r.height+r.width)==0){
-    //If so, then return "No Such Rectangle"
-    printf("no intersection");
-    r.x=0;
-    r.y=0;
-  }
-  //Return r
+  //return r
   return r;
 }
 
