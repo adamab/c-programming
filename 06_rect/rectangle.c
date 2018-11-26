@@ -43,8 +43,11 @@ rectangle intersection(rectangle r1, rectangle r2) {
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
   //return r
   return r;
+<<<<<<< HEAD
 
 >>>>>>> a84887c7e5c1cdd9022bff0d6d846d05482a2fc3
+=======
+>>>>>>> 623672a59f689ead0e04b43fab62e4f021684632
 }
 
 //You should not need to modify any code below this line
