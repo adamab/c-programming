@@ -54,6 +54,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
   //return r
   return r;
+
 }
 
 //You should not need to modify any code below this line
