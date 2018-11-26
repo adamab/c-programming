@@ -16,17 +16,28 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-
+typedef struct rect_t rectangle;struct rect_struct {
+  int x;
+  int y;
+  int width;
+  int height;
+};
+typedef struct rect_struct rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
+  if (r.height < 0){
+    r.y = r.y + r.height;
+    r.height = -r.height;
+  }
+  if (r.width < 0){
+    r.x = r.x + r.width;
+    r.width = -r.width;
+  }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-<<<<<<< HEAD
-  return r1;
-=======
   //Set r1 to canonicalize r1
   r1 = canonicalize(r1);
   //Set r2 to canonicalize r2
@@ -43,11 +54,6 @@ rectangle intersection(rectangle r1, rectangle r2) {
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
   //return r
   return r;
-<<<<<<< HEAD
-
->>>>>>> a84887c7e5c1cdd9022bff0d6d846d05482a2fc3
-=======
->>>>>>> 623672a59f689ead0e04b43fab62e4f021684632
 }
 
 //You should not need to modify any code below this line
