@@ -20,7 +20,7 @@ double updateBalance(double balance, double rate, double contribution){
 }
 
 balance_info printBalances(balance_info balanceData, retire_info retiring){
-  for (inti=0, i<retiring.months, i++){
+  for (int i=0; i<retiring.months; i++){
     printf("Age %3d month %2d you have $%.2lf\n", balanceData.age/12, balanceData.age%12, balanceData.amount);
     balanceData.amount = updateBalance(balanceData.amount, retiring.rate_of_return, retiring.contribution);
     balanceData.age +=1;
@@ -34,7 +34,7 @@ void retirement(int startAge, //in months
   balance_info balanceData;
   balanceData.age = startAge;
   balanceData.amount = initial;
-  balanceData =  printBalances(balanceData, working);
+  balanceData = printBalances(balanceData, working);
   printBalances(balanceData, retired);
 }
 
