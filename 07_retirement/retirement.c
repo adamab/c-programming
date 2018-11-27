@@ -25,6 +25,7 @@ balance_info printBalances(balance_info balanceData, retire_info retiring){
     balanceData.amount = updateBalance(balanceData.amount, retiring.rate_of_return, retiring.contribution);
     balanceData.age +=1;
   }
+  return balanceData;
 }
 
 void retirement(int startAge, //in months
