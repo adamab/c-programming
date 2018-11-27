@@ -45,13 +45,15 @@ rectangle intersection(rectangle r1, rectangle r2) {
   //Create an empty rectangel called r
   rectangle r;
   //Set r.x to maximum of r1.x and r2.x
-  r.x = max(r1.x, r1.x);
+  r.x = max(r1.x, r2.x);
   //Set r.y to maximum of r1.y and r2.y
   r.y=max(r1.y, r2.y);
   //Set r.width to the difference of minimum of r1.x+r1.width and r2.x+r2.width and r.x
   r.width=(min((r1.x+r1.width), (r2.x+r2.width))-r.x);
+  r.width=if(r.width<0){0}else{r.width};
   //Set r.height to the difference of minimum of r1.y+r1.height and r2.y+r2.height and r.y
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
+  r.height=if(r.height<0){0}else{r.height};
   //return r
   return r;
 }
