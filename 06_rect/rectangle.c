@@ -50,10 +50,10 @@ rectangle intersection(rectangle r1, rectangle r2) {
   r.y=max(r1.y, r2.y);
   //Set r.width to the difference of minimum of r1.x+r1.width and r2.x+r2.width and r.x
   r.width=(min((r1.x+r1.width), (r2.x+r2.width))-r.x);
-  if(r.width<0){r.width=0};
+  r.width=max(r.width,0);
   //Set r.height to the difference of minimum of r1.y+r1.height and r2.y+r2.height and r.y
   r.height=(min((r1.y+r1.height), (r2.y+r2.height))-r.y);
-  if(r.height<0){r.height=0};
+  r.height=max(r.height,0);
   //return r
   return r;
 }
