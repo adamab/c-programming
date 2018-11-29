@@ -1,13 +1,12 @@
-Grading at Thu Nov 29 13:29:13 UTC 2018
+Grading at Thu Nov 29 13:43:17 UTC 2018
 #################################################
 test input.1:
 Your file matched the expected output
 input.1 passed
 #################################################
 test input.2:
-Line_1_did_not_match
-Your file did not match the expected ouput
-input.2 failed, your output did not match with the answer
+Your file matched the expected output
+input.2 passed
 #################################################
 test input.3:
 Your file matched the expected output
@@ -17,4 +16,4 @@ test input.4:
 Your file matched the expected output
 input.4 passed
 
-Overall Grade: B
+Overall Grade: A
