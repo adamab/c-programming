@@ -5,7 +5,8 @@
 
 
 void assert_card_valid(card_t c) {
-
+  assert(c.value >= 2 & c.value <= 14);
+  assert(c.suit >= 0 & c.suit <= 3);
 
 }
 
