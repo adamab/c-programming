@@ -19,9 +19,9 @@ int main(void) {
   c3.value=4;//Valid value
   c3.suit=0;//Valid suit
   
-  assert_card_value(c1);//Error
-  assert_card_value(c2);//Error
-  assert_card_value(c3);//No error
+  assert_card_valid(c1);//Error
+  assert_card_valid(c2);//Error
+  assert_card_valid(c3);//No error
 
   value_letter(c1);//Error
   value_letter(c2);//Error
