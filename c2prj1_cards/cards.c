@@ -77,7 +77,12 @@ char suit_letter(card_t c) {
 }
 
 void print_card(card_t c) {
-
+  //Store value in temp variable
+  char value_temp = value_letter(c);
+  //Store suit in temp variable
+  char suit_temp = suit_letter(c);
+  //Print card using appropriate values
+  printf("%c%c", value_temp, suit_temp);
 }
 
 card_t card_from_letters(char value_let, char suit_let) {
