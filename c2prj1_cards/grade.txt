@@ -1,0 +1,10 @@
+Grading at Mon Dec 10 04:39:14 UTC 2018
+Compiling cards.c
+Testing card_from_letters
+For card_from_letters('6','c'), I expected 6c but got 5c
+For card_from_letters('6','d'), I expected 6d but got 5d
+For card_from_letters('6','h'), I expected 6h but got 5h
+For card_from_letters('6','s'), I expected 6s but got 5s
+Failed
+
+Overall Grade: FAILED
