@@ -37,8 +37,8 @@ int main(void) {
 
   card_t cret1=card_from_num(37);
   card_t cret2=card_from_num(52);
-  card_t cret2=card_from_letters('k','d');
+  cret2=card_from_letters('k','d');
   card_t cret3=card_from_letters('h','s');
-  card_t cret3=card_from_letters('0','e');
-  card_t cret3=card_from_letters('0','c');
+  cret3=card_from_letters('0','e');
+  cret3=card_from_letters('0','c');
 }
