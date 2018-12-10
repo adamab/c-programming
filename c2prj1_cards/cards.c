@@ -5,13 +5,16 @@
 
 
 void assert_card_valid(card_t c) {
+  //Assert the value is between 2 and 14
   assert(c.value >= 2 & c.value <= 14);
+  //Assert the suit value is between 0 and 3
   assert(c.suit >= 0 & c.suit <= 3);
 
 }
 
 const char * ranking_to_string(hand_ranking_t r) {
-  switc(r){
+  //Use switch case to return the char for hand ranking
+  switch (r){
   case STRAIGHT_FLUSH:
     return "STRAIGHT FLUSH";
   case FOUR_OF_A_KIND:
@@ -28,20 +31,49 @@ const char * ranking_to_string(hand_ranking_t r) {
     return "TWO PAIR";
   case PAIR:
     return "PAIR";
-  case NOTHING:
+  default:
     return "NOTHING";
-  
-return "";
+  }
 }
 
 char value_letter(card_t c) {
-  return 'x';
+  //Check for a valid card
+  assert_card_valid(c);
+  //Determine if it is one of the single characters to use decimal char
+  if (c.value < 10) {
+    return "0" + c.value;
+  } else {
+    //If it is not a single digit, then use switch case to return the proper char
+    switch(c.value){
+    case 10:
+      return "0";
+    case 11:
+      return "J";
+    case 12:
+      return "Q";
+    case 13:
+      return "K" ;
+    case 14:
+      return "A";
+    }
+  }
 }
 
 
 char suit_letter(card_t c) {
-  return 'x';
-  
+  //Check for a valid card
+  assert_card_valid(c);
+  //Use switch case to return the char for the suit
+  switch (c.suit){
+  case SPADES:
+    return "s";
+  case HEARTS:
+    return "h";
+  case DIAMONDS:
+    return "d";
+  case CLUBS:
+    return "c";
+  }
 }
 
 void print_card(card_t c) {
