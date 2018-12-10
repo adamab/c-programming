@@ -125,7 +125,7 @@ card_t card_from_letters(char value_let, char suit_let) {
     temp.value=5;
     break;
   case (int) '6':
-    temp.value=5;
+    temp.value=6;
     break;
   case (int) '7':
     temp.value=7;
