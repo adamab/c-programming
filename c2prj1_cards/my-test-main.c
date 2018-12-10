@@ -35,10 +35,10 @@ int main(void) {
   print_card(c2);//Error
   print_card(c3);//Js
 
-  card_t cret1=card_from_num(37);
-  card_t cret2=card_from_num(52);
-  cret2=card_from_letters('k','d');
-  card_t cret3=card_from_letters('h','s');
-  cret3=card_from_letters('0','e');
-  cret3=card_from_letters('0','c');
+  c1=card_from_num(37);
+  c2=card_from_num(52);
+  c2=card_from_letters('k','d');
+  c3=card_from_letters('h','s');
+  c3=card_from_letters('0','e');
+  c3=card_from_letters('0','c');
 }
