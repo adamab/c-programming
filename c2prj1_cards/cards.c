@@ -87,6 +87,7 @@ void print_card(card_t c) {
 
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
+  //Use switch case to set the proper suit value
   switch (suit_let){
   case "SPADES":
     temp.suit=0;
@@ -104,6 +105,7 @@ card_t card_from_letters(char value_let, char suit_let) {
     temp.suit=5;
     break;
   }
+  //Use switch case to set the proper value
   switch(value_let){
   case "2":
     temp.value=2;
@@ -155,5 +157,9 @@ card_t card_from_letters(char value_let, char suit_let) {
 
 card_t card_from_num(unsigned c) {
   card_t temp;
+  //set suit value as number mod 4
+  temp.suit = c%4;
+  //Set value as number mod 13 plus 2
+  temp.value = ((c%13) + 2);
   return temp;
 }
