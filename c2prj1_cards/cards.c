@@ -16,29 +16,30 @@ const char * ranking_to_string(hand_ranking_t r) {
   //Use switch case to return the char for hand ranking
   switch (r){
   case STRAIGHT_FLUSH:
-    return (char) 'STRAIGHT FLUSH';
+    return (char *) 'STRAIGHT FLUSH';
   case FOUR_OF_A_KIND:
-    return (char) 'FOUR OF A KIND';
+    return (char *) 'FOUR OF A KIND';
   case FULL_HOUSE:
-    return (char) 'FULL HOUSE';
+    return (char *) 'FULL HOUSE';
   case FLUSH:
-    return (char) 'FLUSH';
+    return (char *) 'FLUSH';
   case STRAIGHT:
-    return (char) 'STRAIGHT';
+    return (char *) 'STRAIGHT';
   case THREE_OF_A_KIND:
-    return (char) 'THREE OF A KIND';
+    return (char *) 'THREE OF A KIND';
   case TWO_PAIR:
-    return (char) 'TWO PAIR';
+    return (char *) 'TWO PAIR';
   case PAIR:
-    return (char) 'PAIR';
+    return (char *) 'PAIR';
   default:
-    return (char) 'NOTHING';
+    return (char *) 'NOTHING';
   }
 }
 
 char value_letter(card_t c) {
   //Check for a valid card
   assert_card_valid(c);
+  //Instantiate temp variable
   //Determine if it is one of the single characters to use decimal char
   if (c.value < 10) {
     return (char) ('0' + c.value);
@@ -56,7 +57,7 @@ char value_letter(card_t c) {
     case 14:
       return (char) 'A';
     default:
-      return;
+      return 'x';
     }
   }
 }
@@ -76,7 +77,7 @@ char suit_letter(card_t c) {
   case CLUBS:
     return (char) 'c';
   default:
-    return;
+    return 'x';
   }
 }
 
