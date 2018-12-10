@@ -16,23 +16,23 @@ const char * ranking_to_string(hand_ranking_t r) {
   //Use switch case to return the char for hand ranking
   switch (r){
   case STRAIGHT_FLUSH:
-    return (char) "STRAIGHT FLUSH";
+    return (char) 'STRAIGHT FLUSH';
   case FOUR_OF_A_KIND:
-    return (char) "FOUR OF A KIND";
+    return (char) 'FOUR OF A KIND';
   case FULL_HOUSE:
-    return (char) "FULL HOUSE";
+    return (char) 'FULL HOUSE';
   case FLUSH:
-    return (char) "FLUSH";
+    return (char) 'FLUSH';
   case STRAIGHT:
-    return (char) "STRAIGHT";
+    return (char) 'STRAIGHT';
   case THREE_OF_A_KIND:
-    return (char) "THREE OF A KIND";
+    return (char) 'THREE OF A KIND';
   case TWO_PAIR:
-    return (char) "TWO PAIR";
+    return (char) 'TWO PAIR';
   case PAIR:
-    return (char) "PAIR";
+    return (char) 'PAIR';
   default:
-    return (char) "NOTHING";
+    return (char) 'NOTHING';
   }
 }
 
@@ -41,20 +41,20 @@ char value_letter(card_t c) {
   assert_card_valid(c);
   //Determine if it is one of the single characters to use decimal char
   if (c.value < 10) {
-    return (char) ("0" + c.value);
+    return (char) ('0' + c.value);
   } else {
     //If it is not a single digit, then use switch case to return the proper char
     switch(c.value){
     case 10:
-      return (char) "0";
+      return (char) '0';
     case 11:
-      return (char) "J";
+      return (char) 'J';
     case 12:
-      return (char) "Q";
+      return (char) 'Q';
     case 13:
-      return (char) "K" ;
+      return (char) 'K' ;
     case 14:
-      return (char) "A";
+      return (char) 'A';
     default:
       return;
     }
@@ -68,13 +68,13 @@ char suit_letter(card_t c) {
   //Use switch case to return the char for the suit
   switch (c.suit){
   case SPADES:
-    return (char) "s";
+    return (char) 's';
   case HEARTS:
-    return (char) "h";
+    return (char) 'h';
   case DIAMONDS:
-    return (char) "d";
+    return (char) 'd';
   case CLUBS:
-    return (char) "c";
+    return (char) 'c';
   default:
     return;
   }
@@ -86,23 +86,23 @@ void print_card(card_t c) {
   //Store suit in temp variable
   char suit_temp = suit_letter(c);
   //Print card using appropriate values
-  printf("%c%c", value_temp, suit_temp);
+  printf('%c%c', value_temp, suit_temp);
 }
 
 card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
   //Use switch case to set the proper suit value
   switch (suit_let){
-  case "s":
+  case 's':
     temp.suit=0;
     break;
-  case "h":
+  case 'h':
     temp.suit=1;
     break;
-  case "d":
+  case 'd':
     temp.suit=2;
     break;
-  case "c":
+  case 'c':
     temp.suit=3;
     break;
   default:
@@ -111,43 +111,43 @@ card_t card_from_letters(char value_let, char suit_let) {
   }
   //Use switch case to set the proper value
   switch(value_let){
-  case "2":
+  case (int) '2':
     temp.value=2;
     break;
-  case "3":
+  case (int) '3':
     temp.value=3;
     break;
-  case "4":
+  case (int) '4':
     temp.value=4;
     break;
-  case "5":
+  case (int) '5':
     temp.value=5;
     break;
-  case "6":
+  case (int) '6':
     temp.value=5;
     break;
-  case "7":
+  case (int) '7':
     temp.value=7;
     break;
-  case "8":
+  case (int) '8':
     temp.value=8;
     break;
-  case "9":
+  case (int) '9':
     temp.value=9;
     break;
-  case "10":
+  case (int) '10':
     temp.value=10;
     break;
-  case "J":
+  case (int) 'J':
     temp.value=11;
     break;
-  case "Q":
+  case (int) 'Q':
     temp.value=12;
     break;
-  case "K":
+  case (int) 'K':
     temp.value=13;
     break;
-  case "A":
+  case (int) 'A':
     temp.value=14;
     break;
   default:
