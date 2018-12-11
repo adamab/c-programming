@@ -1,4 +1,13 @@
 4h 5d Ac 2c 3c 7c 6h; 4s 5s As 2s 3s 7h 6d
 7s 9h 8c 0d 6h 2c Js; 7s 9h 8c 0d 6h 2c 4d
-7s 7h 8c 8h 0s; 7d 7c 8s 8d Js
 2s 4c 7d 9h Js; 3c 5d 8h 0d 6c
+7s 7h 8c 8h 0s; 7d 7c 8s 8d Js
+2s 4c 7d 9h Js; 3c 3s 6h 8c Ks
+2s 4c 7d 9h Js; 3c 3s 5h 5d Ks
+2s 4c 7d 9h Js; 3c 3s 5h 5d 5s
+2s 4c 7d 9h Js; 3c 5c 5h 5d 5s
+2s 4c 7d 9h Js; 3c 4s 5c 6c 7c
+2s 4c 7d 9h Js; 3c 4c 5c 6c 7c
+2s 4c 7d 9h Js; 2c 4c 5c 6c 7c
+2s 4c 7d 9h Js; 4c 4c 5c 6c 7c
+2s 4c 7d 9h Js; 2c 2c 2d 2h 2s
