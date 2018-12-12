@@ -15,3 +15,6 @@
 2s 4s 7s 9h Js 2h 7s; 4c 2c 4h 5c 6c 7c 4d 
 2s 4c 2d 3h 5s 2h 6s; 3s 3c 4h 0c 6c 7c 3d 
 2s 4c 7h 9h Js 2h 7s; 4s 2c 4d 5c 6c 7c 7d 
+2s 4c 7d 9h Js; 2c 4d 7s 9h Jc
+2s 2h 4s 4c 0d; 2c 2d 4d 4h 0s
+2h 2d 9h 9s Js 7h 7s; 4s 4c 9d 9c 6c 7c 7d 
