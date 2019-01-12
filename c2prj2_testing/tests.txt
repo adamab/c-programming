@@ -39,3 +39,5 @@ Ah Ad Ac 3d 3c 7c 9h; Ac Ad As 3d 3s 8h 0d
 5h 5d Ac As 3c 7c Kh; 5c 5s Ad Ah 3s 8h 0d
 5h 5d Ac 2c 3c 7c 9h; 5c 5s Ks 2s 3s 8h 0d
 4h 8d Ac 2c 3c 7c 9h; 4s 5s 7c 2s 3s 8h 0d
+0c 0s 8s 7d 6d 6s 5c; Js 0s 8s 7d 6s 5c 4c
+4h 4d Ac 2c 3c 9c 9h; 6s 6c 7c 2s 4s 4c 0d
