@@ -2,7 +2,7 @@ VARIABLE = -pedantic -std=gnu99 -Wall -Werror -g
 test: test.o
 	gcc -o test test.o
 test.o:
-	gcc -c test.o  $(VARIABLE) test.c
+	gcc -c $(VARIABLE) test.c test.o
 .PHONY: clean
 clean:
-	rm -f test *.o *.c~ *.h~
+	rm -f *.o *.c~ *.h~
