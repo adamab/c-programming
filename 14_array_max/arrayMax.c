@@ -2,7 +2,20 @@
 #include <stdlib.h>
 
 int * arrayMax(int * array, int n) {
-  return NULL;
+  // Check for length, and return NULL if 0
+  if (n == 0) return NULL;
+  // Initialize maxIndex to 0
+  int maxIndex = 0;
+  // Loop thorugh the length of the array (exclusive)
+  for (int i=0; i < n, i++) {
+    // If the value of the array at index i is greater than the value at maxIndex
+    if (array[i] > array[maxIndex]) {
+      // Set the value of maxIndex to equal i
+      maxIndex = i;
+    }
+  }
+  // Return the address of array at maxIndex
+  return &array[maxIndex];
 }
 
 void doTest(int * array, int n) {
