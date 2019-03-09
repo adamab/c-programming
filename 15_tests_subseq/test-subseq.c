@@ -3,7 +3,7 @@
 
 size_t maxSeq(int * array, size_t n);
 
-int main(){
+void main(){
   int test1[7] = {1,2,3,4,5,4,8};
   int test2[9] = {1,2,6,5,5,4,8,7,8};
   int test3[4] = {5,3,4,4};
@@ -20,5 +20,5 @@ int main(){
   if (maxSeq(test6, 2) != 1) printf("Failed for 1,0\n"); exit(EXIT_FAILURE);
   if (maxSeq(test7, 5) != 2) printf("Failed for 1,1,13,4,511\n"); exit(EXIT_FAILURE);
 
-  return EXIT_SUCCESS;
+  exit(EXIT_SUCCESS);
 }
