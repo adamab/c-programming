@@ -7,7 +7,7 @@ int * arrayMax(int * array, int n) {
   // Initialize maxIndex to 0
   int maxIndex = 0;
   // Loop thorugh the length of the array (exclusive)
-  for (int i=0; i < n, i++) {
+  for (int i=0; i < n; i++) {
     // If the value of the array at index i is greater than the value at maxIndex
     if (array[i] > array[maxIndex]) {
       // Set the value of maxIndex to equal i
