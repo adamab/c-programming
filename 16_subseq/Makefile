@@ -1,8 +1,8 @@
 VARIABLE = -pedantic -std=gnu99 -Wall -Werror -g
-testSeqMax: test-seqMax.o seqMax.o
+testSeqMax: test-subseq.o seqMax.o
 	gcc -o testSeqMax -pedantic -std=gnu99 -Wall -Werror seqMax.o test-seqMax.o
-test-seqMax.o:
-	gcc -c $(VARIABLE) test-seqMax.c
+test-subseq.o:
+	gcc -c $(VARIABLE) test-subseq.c
 seqMax.o:
 	gcc -c $(VARIABLE) seqMax.c
 .PHONY: clean
