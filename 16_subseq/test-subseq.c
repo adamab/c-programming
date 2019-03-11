@@ -9,7 +9,6 @@ void main(){
   int test3[4] = {5,3,4,4};
   int test4[5] = {3,4,4,8,7};
   int test5[9] = {4,8,6,5,4,3,2,1,0};
-  int test6[1] = {0};
   int test7[5] = {1,1,13,4,511};
   int test8[5] = {-2,-1,0,1,2};
   int test9[1] = {0};
@@ -24,6 +23,7 @@ void main(){
   if (maxSeq(test8, 5) != 5) {printf("Failed for -2,-1,0,1,2\n"); exit(EXIT_FAILURE);}
   if (maxSeq(test9, 1) != 1) {printf("Failed for 0\n"); exit(EXIT_FAILURE);}
   if (maxSeq(test10, 5) != 1) {printf("Failed for 0,0,0,0,0\n"); exit(EXIT_FAILURE);}
+  int test6[1] = {0};
   if (maxSeq(test6, 0) != 0) {printf("Failed for zero n\n"); exit(EXIT_FAILURE);}
 
   exit(EXIT_SUCCESS);
