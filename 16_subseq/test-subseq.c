@@ -14,17 +14,17 @@ void main(){
   int test9[1] = {0};
   int test10[5] = {0,0,0,0,0};
 
-  if (maxSeq(test1, 7) != 5) {printf("Failed for 1,2,3,4,5,4,8\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test2, 9) != 3) {printf("Failed for 1,2,6,5,5,4,8,7,8\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test3, 4) != 2) {printf("Failed for 5,3,4,4\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test4, 5) != 2) {printf("Failed for 3,4,4,8,7\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test5, 9) != 2) {printf("Failed for 4,8,6,5,4,3,2,1,0\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test7, 5) != 2) {printf("Failed for 1,1,13,4,511\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test8, 5) != 5) {printf("Failed for -2,-1,0,1,2\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test9, 1) != 1) {printf("Failed for 0\n"); exit(EXIT_FAILURE);}
-  if (maxSeq(test10, 5) != 1) {printf("Failed for 0,0,0,0,0\n"); exit(EXIT_FAILURE);}
+  if (maxSeq(test1, 7) != 5) {printf("Failed for 1,2,3,4,5,4,8\n"); return EXIT_FAILURE;}
+  if (maxSeq(test2, 9) != 3) {printf("Failed for 1,2,6,5,5,4,8,7,8\n"); return EXIT_FAILURE;}
+  if (maxSeq(test3, 4) != 2) {printf("Failed for 5,3,4,4\n"); return EXIT_FAILURE;}
+  if (maxSeq(test4, 5) != 2) {printf("Failed for 3,4,4,8,7\n"); return EXIT_FAILURE;}
+  if (maxSeq(test5, 9) != 2) {printf("Failed for 4,8,6,5,4,3,2,1,0\n"); return EXIT_FAILURE;}
+  if (maxSeq(test7, 5) != 2) {printf("Failed for 1,1,13,4,511\n"); return EXIT_FAILURE;}
+  if (maxSeq(test8, 5) != 5) {printf("Failed for -2,-1,0,1,2\n"); return EXIT_FAILURE;}
+  if (maxSeq(test9, 1) != 1) {printf("Failed for 0\n"); return EXIT_FAILURE;}
+  if (maxSeq(test10, 5) != 1) {printf("Failed for 0,0,0,0,0\n"); return EXIT_FAILURE;}
   int test6[1] = {0};
-  if (maxSeq(test6, 0) != 0) {printf("Failed for zero n\n"); exit(EXIT_FAILURE);}
+  if (maxSeq(test6, 0) != 0) {printf("Failed for zero n\n"); return EXIT_FAILURE;}
 
-  exit(EXIT_SUCCESS);
+  return EXIT_SUCCESS;
 }
