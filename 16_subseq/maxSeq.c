@@ -3,7 +3,7 @@
 
 size_t maxSeq(int * array, size_t n){
   //Check if size n is less than 0, return -1 if so
-  if(n < 0) return -1;
+  //if(n < 0) return -1;
   //Check if size n is 0, return 0 if so
   if(n == 0) return 0;
   //Create variable count initialized to 1
