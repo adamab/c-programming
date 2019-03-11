@@ -1,4 +1,4 @@
-VARIABLE = -pedantic -std=gnu99 -g
+VARIABLE = -pedantic -std=gnu99 -g -ggdb3
 testSeqMax: test-subseq.o maxSeq.o
 	gcc -o testSeqMax $(VARIABLE) maxSeq.o test-subseq.o
 test-subseq.o:
