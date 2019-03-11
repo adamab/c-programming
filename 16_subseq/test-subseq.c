@@ -9,7 +9,7 @@ void main(){
   int test3[4] = {5,3,4,4};
   int test4[5] = {3,4,4,8,7};
   int test5[9] = {4,8,6,5,4,3,2,1,0};
-  int test6[] = {};
+  int test6[1] = {};
   int test7[5] = {1,1,13,4,511};
   int test8[5] = {-2,-1,0,1,2};
   int test9[1] = {0};
