@@ -11,7 +11,7 @@ size_t maxSeq(int * array, size_t n){
   //Create variable maxCount initialized to 1
   int maxCount = 1;
   //Loop from 1 to n(exclusive)
-  for(i = 1; i < n; i++){
+  for(int i = 1; i < n; i++){
   //Check if value at index of current step is greater than the value at index of the previous step
   //Add 1 to count if the above holds
     if(array[i] > array[i-1]) count+=1;
