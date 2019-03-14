@@ -1,4 +1,4 @@
-VARIABLE = -pedantic -std=gnu99 -Wall -Werror -g -fsanitize=address
+VARIABLE = -pedantic -std=gnu99 -Wall -Werror -g
 test: test.o
 	gcc -o test test.o
 test.o:
