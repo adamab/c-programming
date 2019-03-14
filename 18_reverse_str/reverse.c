@@ -22,7 +22,6 @@ void reverse(char * str) {
   stringcpy[n]='\0';
   //Count from 0 to n and set str[i] equal to strcpy[n-i]
   for (int i = 0; i < n; i++) str[i] = stringcpy[n-i-1];
-  exit();
 }
 
 int main(void) {
