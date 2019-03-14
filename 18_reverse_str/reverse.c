@@ -4,7 +4,7 @@
 
 void reverse(char * str) {
   //Dereference str and store it in strcpy
-  char strcpy[] = *str;
+  char strcpy[] = str;
   //Create the count integer n
   int n = 1;
   //Loop through str until reaching \0
