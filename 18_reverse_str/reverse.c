@@ -15,11 +15,11 @@ void reverse(char * str) {
     str++;
   }
   //Create strcpy with the size of n
-  char strcpy[n+1];
+  char stringcpy[n+1];
   //Dereference str and store it in strcpy
-  for (int j = 0; j < n; j++) strcpy[j] = str[j];
+  strncpy(stringcpy, str, n);
   //Count from 0 to n and set str[i] equal to strcpy[n-i]
-  for (int i = 0; i < n; i++) str[i] = strcpy[n-i];
+  for (int i = 0; i < n; i++) str[i] = stringcpy[n-i];
 }
 
 int main(void) {
