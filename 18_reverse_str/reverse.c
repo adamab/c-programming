@@ -4,7 +4,7 @@
 
 void reverse(char * str) {
   //Dereference str and store it in strcpy
-  char strcpy[] = str;
+
   //Create the count integer n
   int n = 1;
   //Loop through str until reaching \0
@@ -14,6 +14,10 @@ void reverse(char * str) {
   //Increase str pointer by 1
     str++;
   }
+  //Create strcpy with the size of n
+  char strcpy[n+1] = '';
+  //Dereference str and store it in strcpy
+  for (int j = 0; j < n; j++) strcpy[j] = str[j];
   //Count from 0 to n and set str[i] equal to strcpy[n-i]
   for (int i = 0; i < n; i++) str[i] = strcpy[n-i];
 }
