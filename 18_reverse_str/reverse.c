@@ -3,7 +3,19 @@
 #include <string.h>
 
 void reverse(char * str) {
-  //WRITE ME!
+  //Dereference str and store it in strcpy
+  char strcpy[] = *str;
+  //Create the count integer n
+  int n = 1;
+  //Loop through str until reaching \0
+  while (*str != '\0'){
+  //Increase n by 1
+    n++;
+  //Increase str pointer by 1
+    str++;
+  }
+  //Count from 0 to n and set str[i] equal to strcpy[n-i]
+  for (int i = 0; i < n; i++) str[i] = strcpy[n-i];
 }
 
 int main(void) {
