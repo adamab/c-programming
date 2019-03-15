@@ -8,13 +8,12 @@ void reverse(char * str) {
   //Create the count integer n
   int n = 1;
   //Loop through str until reaching \0
-  while (*str != '\0'){
+  while (*strptr != '\0'){
   //Increase n by 1
     n++;
   //Increase str pointer by 1
-    str++;
+    strptr++;
   }
-  str = strptr;
   //Create strcpy with the size of n
   char stringcpy[n+1];
   //Dereference str and store it in strcpy
