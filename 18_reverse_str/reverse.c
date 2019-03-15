@@ -6,7 +6,7 @@ void reverse(char * str) {
   //Initialize copy pointer
   char * strptr = str;
   //Create the count integer n
-  int n = 1;
+  int n = 0;
   //Loop through str until reaching \0
   while (*strptr != '\0'){
   //Increase n by 1
@@ -20,7 +20,9 @@ void reverse(char * str) {
   strncpy(stringcpy, str, n);
   stringcpy[n]='\0';
   //Count from 0 to n and set str[i] equal to strcpy[n-i]
-  for (int i = 0; i < n; i++) str[i] = stringcpy[n-i-1];
+  for (int i = 0; i < n; i++) {
+    str[i] = stringcpy[n-i-1];
+  }
 }
 
 int main(void) {
