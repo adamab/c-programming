@@ -3,6 +3,8 @@
 #include <string.h>
 
 void reverse(char * str) {
+  //Check if the string is null and break
+  if (str[0] = '\0') break;
   //Initialize copy pointer
   char * strptr = str;
   //Create the count integer n
