@@ -4,7 +4,7 @@
 
 void reverse(char * str) {
   //Check if the string is null and break
-  if (str[0] == '\0') return;
+  if (str == NULL) return;
   //Initialize copy pointer
   char * strptr = str;
   //Create the count integer n
