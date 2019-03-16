@@ -17,7 +17,7 @@ void reverse(char * str) {
     strptr++;
   }
   //Create strcpy with the size of n
-  char stringcpy[n+1];
+  char stringcpy[n];
   //Dereference str and store it in strcpy
   strncpy(stringcpy, str, n);
   stringcpy[n]='\0';
