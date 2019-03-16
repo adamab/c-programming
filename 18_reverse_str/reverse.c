@@ -10,7 +10,7 @@ void reverse(char * str) {
   //Create the count integer n
   int n = 0;
   //Loop through str until reaching \0
-  while (*strptr != '\0' & n < 5000){
+  while (*strptr != '\0' && n < 5000){
   //Increase n by 1
     n++;
   //Increase str pointer by 1
