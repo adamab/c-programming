@@ -28,7 +28,8 @@ void reverse(char * str) {
 }
 
 int main(void) {
-  char str0[];
+  char str0[] = "";
+  str0[0] = "\0";
   char str1[] = "123";
   char str2[] = "abcd";
   char str3[] = "Captain's log, Stardate 42523.7";
