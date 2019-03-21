@@ -17,7 +17,7 @@ int main(){
   run_check(0,3,0);
   run_check(3,0,1);
   run_check(4294967295,1,4294967295);
-  printf("All tests passed");
+  printf("All tests passed\n");
   return EXIT_SUCCESS;
 
 }
