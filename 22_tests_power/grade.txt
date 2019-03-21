@@ -1,0 +1,64 @@
+Grading at Thu Mar 21 02:44:56 UTC 2019
+**Testing broken implementation 10 **
+-------------------------------------
+
+Failed for x=2, y=2, expected=4
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+Failed for x=-1, y=1, expected=-1
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+Failed for x=2, y=2, expected=4
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+Failed for x=2, y=3, expected=8
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+Failed for x=0, y=0, expected=1
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+Failed for x=-1, y=1, expected=-1
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Failed for x=2, y=2, expected=4
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+Failed for x=0, y=3, expected=0
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+Failed for x=2, y=2, expected=4
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+Failed for x=2, y=3, expected=8
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+Failed for x=2, y=2, expected=4
+
+**Testing correct implementation **
+-------------------------------------
+
+All tests passed
+All tests were ok.
+
+
+Overall Grade: PASSED
