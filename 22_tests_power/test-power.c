@@ -8,6 +8,7 @@ void run_check(unsigned x, unsigned y, unsigned expected_ans){
   if (power(x, y) == expected_ans) return;
   printf('Failed for x=%d, y=%d, expected=%d\n',x,y,expected_ans);
   exit(EXIT_FAILURE);
+}
 
 int main(){
   run_check(2,2,4);
