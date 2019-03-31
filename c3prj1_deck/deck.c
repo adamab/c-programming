@@ -51,4 +51,5 @@ void assert_full_deck(deck_t * d) {
       printf("ERROR: Card %c%c is not in the deck.", val, suit);
       exit(EXIT_FAILURE);
     }
+  }
 }
