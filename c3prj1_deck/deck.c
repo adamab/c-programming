@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "deck.h"
+
+char suit_letter(card_t card);
+char value_letter(card_t card);
+
 void print_hand(deck_t * hand){
   //Loop thorugh the length of the hand  
   for(int i = 0; i < hand->n_cards; i++){  
