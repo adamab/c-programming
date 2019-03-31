@@ -6,7 +6,7 @@ void print_hand(deck_t * hand){
   //Loop thorugh the length of the hand  
   for(int i = 0; i < hand->n_cards; i++){  
     //Print the card at index i
-    print_card(*(*d).cards[i]);
+    print_card(*(*hand).cards[i]);
   }
 }
 
@@ -22,11 +22,16 @@ int deck_contains(deck_t * d, card_t c) {
 
 void shuffle(deck_t * d){
   //Save the cards addresses in a new array of cards
-  card_t * cards[(*d).n_cards] = (*d).cards;
-  //Loop through the length of the cards and assign them to a random position in the deck
+  //Create the array
+  card_t * cards[(*d).n_cards];
+  //Loop through the cards
   for(int i = 0; i < (*d).n_cards; i++){
+    cards[i] = *(*d).cards[i];
+  }
+  //Loop through the length of the cards and assign them to a random position in the deck
+  for(int j = 0; j < (*d).n_cards; j++){
     //Assign card addresses to a random position in the original deck
-    (*d).cards[rand()%52] = cards[i];
+    (*d).cards[rand()%52] = cards[j];
   }
 }
 
