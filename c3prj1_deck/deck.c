@@ -6,7 +6,7 @@ void print_hand(deck_t * hand){
   //Loop thorugh the length of the hand  
   for(int i = 0; i < hand->n_cards; i++){  
     //Print the card at index i
-    print_card((*(*(*hand).cards)+i));
+    print_card(*(*d).cards[i]);
   }
 }
 
