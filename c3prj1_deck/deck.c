@@ -48,7 +48,7 @@ void assert_full_deck(deck_t * d) {
     if(deck_contains(d, card) == 0){
       char suit = suit_letter(card);
       char val = value_letter(card);
-      printf("ERROR: Card %s%s is not in the deck.", val, suit);
+      printf("ERROR: Card %c%c is not in the deck.", val, suit);
       exit(EXIT_FAILURE);
     }
 }
