@@ -13,8 +13,9 @@ void print_hand(deck_t * hand){
 int deck_contains(deck_t * d, card_t c) {
   //Loop through the length of the deck
   for(int i = 0; i < (*d).n_cards; i++){
+    card_t card = *(*d).cards[i];
     //Check if the card is equal to the check for card
-    if(*(*d).cards[i] == c) return 1;
+    if(value_letter(card) == value_letter(c) && suit_letter(card) == suit_letter(c)) return 1;
   }
   return 0;
 }
