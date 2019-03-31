@@ -26,7 +26,7 @@ void shuffle(deck_t * d){
   card_t * cards[(*d).n_cards];
   //Loop through the cards
   for(int i = 0; i < (*d).n_cards; i++){
-    cards[i] = *(*d).cards[i];
+    cards[i] = (*d).cards[i];
   }
   //Loop through the length of the cards and assign them to a random position in the deck
   for(int j = 0; j < (*d).n_cards; j++){
