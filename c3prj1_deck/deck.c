@@ -6,7 +6,7 @@ void print_hand(deck_t * hand){
   //Loop thorugh the length of the hand  
   for(int i = 0; i < hand->n_cards; i++){  
     //Print the card at index i
-    print_card(***hand.cards+i);
+    print_card((*(*(*hand).cards)+i));
   }
 }
 
@@ -14,7 +14,7 @@ int deck_contains(deck_t * d, card_t c) {
   //Loop through the length of the deck
   for(int i = 0; i < (*d).n_cards; i++){
     //Check if the card is equal to the check for card
-    if((*d).cards[i] == c) return 1;
+    if(*(*d).cards[i] == c) return 1;
   }
   return 0;
 }
