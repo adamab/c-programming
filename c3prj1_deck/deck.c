@@ -3,8 +3,13 @@
 #include <assert.h>
 #include "deck.h"
 
-char suit_letter(card_t card);
-char value_letter(card_t card);
+
+int check_list(int * list, int length, int newInt){
+  for(int i = 0; i < length; i ++){
+    if(list[i] == newInt) return 1;
+  }
+  return 0;
+}
 
 void print_hand(deck_t * hand){
   //Loop thorugh the length of the hand  
@@ -28,14 +33,24 @@ void shuffle(deck_t * d){
   //Save the cards addresses in a new array of cards
   //Create the array
   card_t * cards[(*d).n_cards];
+  int positions[(*d).n_cards];
+  int position = 0;
+  int len = 0;
   //Loop through the cards
   for(int i = 0; i < (*d).n_cards; i++){
+    //Assign the cards to the array
     cards[i] = (*d).cards[i];
   }
   //Loop through the length of the cards and assign them to a random position in the deck
   for(int j = 0; j < (*d).n_cards; j++){
+    position = rand()%52;
+    while(check_list(positions, len, position) == 1){
+      position = rand()%52;
+    }
+    len +=1;
+    positions[j] = position;
     //Assign card addresses to a random position in the original deck
-    (*d).cards[rand()%52] = cards[j];
+    (*d).cards[position] = cards[j];
   }
 }
 
