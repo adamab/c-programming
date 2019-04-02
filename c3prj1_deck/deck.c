@@ -38,7 +38,7 @@ void shuffle(deck_t * d){
   for(int j = 0; j < (*d).n_cards; j++){
     //Give position a random value mod 52
     position = rand()%52;
-    tmpCard = (*d)cards[position];
+    tmpCard = (*d).cards[position];
     //Assign card addresses to a random position in the original deck
     (*d).cards[position] = (*d).cards[j];
     //Then assign the card address from the random position to the jth position in the deck
