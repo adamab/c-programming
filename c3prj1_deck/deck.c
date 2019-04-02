@@ -45,12 +45,11 @@ void shuffle(deck_t * d){
     position = rand()%52;
     //Assign card addresses to a random position in the original deck
     (*d).cards[position] = cards[j];
-    print_card(*(*d).cards[position]);
-    print_card(*cards[j]);
     //Then assign the card address from the random position to the jth position in the deck
     (*d).cards[j] = cards[position];
-    print_card(*(*d).cards[j]);
-    print_card(*cards[position]);
+    printf("Run %d:", j);
+    print_hand(*d);
+    printf("\n");
   }
 }
 
