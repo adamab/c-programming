@@ -32,24 +32,17 @@ int deck_contains(deck_t * d, card_t c) {
 void shuffle(deck_t * d){
   //Save the cards addresses in a new array of cards
   //Create the array
-  card_t * cards[(*d).n_cards];
+  card_t * tmpCard;
   int position = 0;
-  //Loop through the cards
-  for(int i = 0; i < (*d).n_cards; i++){
-    //Assign the cards to the array
-    cards[i] = (*d).cards[i];
-  }
   //Loop through the length of the cards
   for(int j = 0; j < (*d).n_cards; j++){
     //Give position a random value mod 52
     position = rand()%52;
+    tmpCard = (*d)cards[position];
     //Assign card addresses to a random position in the original deck
-    (*d).cards[position] = cards[j];
+    (*d).cards[position] = (*d).cards[j];
     //Then assign the card address from the random position to the jth position in the deck
-    (*d).cards[j] = cards[position];
-    printf("Run %d, position %d:", j, position);
-    print_hand(d);
-    printf("\n");
+    (*d).cards[j] = tmpCard;
   }
 }
 
