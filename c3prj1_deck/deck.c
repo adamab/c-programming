@@ -47,8 +47,6 @@ void shuffle(deck_t * d){
     (*d).cards[position] = cards[j];
     //Then assign the card address from the random position to the jth position in the deck
     (*d).cards[j-position] = cards[position-j];
-    cards = &cards[-position];
-    (*d).cards = &(*d).cards[-j];
   }
 }
 
