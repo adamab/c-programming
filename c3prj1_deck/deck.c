@@ -33,24 +33,20 @@ void shuffle(deck_t * d){
   //Save the cards addresses in a new array of cards
   //Create the array
   card_t * cards[(*d).n_cards];
-  int positions[(*d).n_cards];
   int position = 0;
-  int len = 0;
   //Loop through the cards
   for(int i = 0; i < (*d).n_cards; i++){
     //Assign the cards to the array
     cards[i] = (*d).cards[i];
   }
-  //Loop through the length of the cards and assign them to a random position in the deck
+  //Loop through the length of the cards
   for(int j = 0; j < (*d).n_cards; j++){
+    //Give position a random value mod 52
     position = rand()%52;
-    while(check_list(positions, len, position) == 1){
-      position = rand()%52;
-    }
-    len +=1;
-    positions[j] = position;
     //Assign card addresses to a random position in the original deck
     (*d).cards[position] = cards[j];
+    //Then assign the card address from the random position to the jth position in the deck
+    (*d).cards[j] = cards[position];
   }
 }
 
