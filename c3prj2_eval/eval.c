@@ -6,10 +6,10 @@
 int card_ptr_comp(const void * vp1, const void * vp2) {
   const card_t * const * cp1 = vp1;
   const card_t * const * cp2 = vp2;
-  if(cp1->value > cp2->value) return 1;
-  if(cp2->value > cp1->value) return -1;
-  if(cp1->suit > cp2->suit) return 1;
-  if(cp2->suit > cp1->suit) return -1;
+  if(cp1->->value > cp2->->value) return 1;
+  if(cp2->->value > cp1->->value) return -1;
+  if(cp1->->suit > cp2->->suit) return 1;
+  if(cp2->->suit > cp1->->suit) return -1;
   return 0;
 }
 
@@ -107,13 +107,13 @@ hand_eval_t build_hand_from_match(deck_t * hand,
   int card_of_a_kind = hand->cards[idx]->value;
   int remain = 5-n;
   for(int i = 0; i < n; i++){
-    ans.cards[i] = %hand->card[idx+i];
+    ans.cards[i] = hand->card[idx+i];
   }
   int j = 0;
   int k = 1;
   while(remain > 0){
     if(hand->cards[j]->value != card_of_a_kind){
-      ans.cards[5-n+k] = %hand->cards[j];
+      ans.cards[5-n+k] = hand->cards[j];
       remain -= 1;
       k +=1;
     }
