@@ -97,17 +97,17 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  hand_ranking_t what,
 				  size_t idx) {
   hand_eval_t ans;
-  ans->ranking = what;
+  ans.ranking = what;
   int card_of_a_kind = hand->cards[idx]->value;
   int remain = 5-n;
   for(int i = 0; i < n; i++){
-    ans->cards[i] = %hand->card[idx+i];
+    ans.cards[i] = %hand->card[idx+i];
   }
   int j = 0;
   int k = 1;
   while(remain > 0){
     if(hand->cards[j] != card_of_a_kind){
-      ans->card[5-n+k] = %hand->cards[j];
+      ans.card[5-n+k] = %hand->cards[j];
       remain -= 1;
       k +=1;
     }
@@ -120,11 +120,11 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 int compare_hands(deck_t * hand1, deck_t * hand2) {
   hand_eval_t evaluated_hand1 = evaluate_hand(qsort(hand1, card_ptr_comp));
   hand_eval_t evaluated_hand2 = evaluate_hand(qsort(hand2, card_ptr_comp));
-  if(evaluated_hand1->ranking > evaluated_hand2->ranking) return 1;
-  if(evaluated_hand2->ranking > evaluated_hand1->ranking) return -1;
+  if(evaluated_hand1.ranking > evaluated_hand2.ranking) return 1;
+  if(evaluated_hand2.ranking > evaluated_hand1.ranking) return -1;
   for(int i = 0; i < 5; i++){
-    if(evaluated_hand1->cards[i]->value > evaluated_hand2->cards[i]->value) return 1;
-    if(evaluated_hand2->cards[i]->value > evaluated_hand1->cards[i]->value) return -1;
+    if(evaluated_hand1.cards[i]->value > evaluated_hand2.cards[i]->value) return 1;
+    if(evaluated_hand2.cards[i]->value > evaluated_hand1.cards[i]->value) return -1;
   }
   return 0;
 }
