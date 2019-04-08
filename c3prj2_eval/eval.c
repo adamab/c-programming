@@ -6,10 +6,10 @@
 int card_ptr_comp(const void * vp1, const void * vp2) {
   const card_t * const * cp1 = vp1;
   const card_t * const * cp2 = vp2;
-  if(**cp1.value > **cp2.value) return 1;
-  if(**cp2.value > **cp1.value) return -1;
-  if(**cp1.suit > **cp2.suit) return 1;
-  if(**cp2.suit > **cp1.suit) return -1;
+  if(*cp1.value > *cp2.value) return 1;
+  if(*cp2.value > *cp1.value) return -1;
+  if(*cp1.suit > *cp2.suit) return 1;
+  if(*cp2.suit > *cp1.suit) return -1;
   return 0;
 }
 
@@ -22,12 +22,18 @@ suit_t flush_suit(deck_t * hand) {
     switch (hand->cards[i]->suit){
     case SPADES:
       scount +=1;
+      break;
     case DIAMONDS:
       dcount += 1;
+      break;
     case CLUBS:
       ccount +=1;
+      break;
     case HEARTS:
       hcount +=1;
+      break;
+    case NUM_SUITS:
+      break;
     }
   }
   if(scount > 4) return SPADES;
@@ -69,7 +75,7 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n){
   int straightCount = 1;
   for(int i = index+1; i < hand->n_cards; i++){
     if(hand->cards[i-1]->value == hand->cards[i]->value) continue;
-    if((hand->cards[i-1]->value == hand->cards[i]->value+1) &&  (hand->cards[i]->suit = fs || fs = NUM_SUITS)) straightCount +=1;
+    if((hand->cards[i-1]->value == hand->cards[i]->value+1) &&  (hand->cards[i]->suit == fs || fs == NUM_SUITS)) straightCount +=1;
   }
   if(straightCount >= n) return 2;
   return 0;
@@ -77,7 +83,7 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n){
 
 int is_ace_low_straight_at(deck_t * hand, size_t index, suit_t fs){
   for(int i = index; i < hand->n_cards; i++){
-    if(hand->cards[i]->value == 5 && (hand->cards[i]->suit = fs || fs = NUM_SUITS)){
+    if(hand->cards[i]->value == 5 && (hand->cards[i]->suit == fs || fs == NUM_SUITS)){
 	if(is_n_length_straight_at(hand, i, fs, 4) > 0) return -1;
       }
   }
@@ -87,7 +93,7 @@ int is_ace_low_straight_at(deck_t * hand, size_t index, suit_t fs){
 int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
   int aceLow = 0;
   int straight = 0;
-  if(hand->cards[index]->value == 14 && (hand->cards[index]->suit = fs || fs = NUM_SUITS)) aceLow = is_ace_low_straight_at(hand, index, fs);
+  if(hand->cards[index]->value == 14 && (hand->cards[index]->suit == fs || fs == NUM_SUITS)) aceLow = is_ace_low_straight_at(hand, index, fs);
   straight = is_n_length_straight_at(hand, index, fs, 5);
   return straight + aceLow;
 }
@@ -107,7 +113,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
   int k = 1;
   while(remain > 0){
     if(hand->cards[j] != card_of_a_kind){
-      ans.card[5-n+k] = %hand->cards[j];
+      ans.cards[5-n+k] = %hand->cards[j];
       remain -= 1;
       k +=1;
     }
