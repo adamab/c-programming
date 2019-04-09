@@ -124,8 +124,8 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 
 
 int compare_hands(deck_t * hand1, deck_t * hand2) {
-  hand_eval_t evaluated_hand1 = evaluate_hand(qsort(&hand1->cards[0], hand1->n_cards-1, sizeof(deck_t *), card_ptr_comp));
-  hand_eval_t evaluated_hand2 = evaluate_hand(qsort(&hand2->cards[0], hand2->n_cards-1, sizeof(deck_t *), card_ptr_comp));
+  hand_eval_t evaluated_hand1 = evaluate_hand(qsort(&(hand1->cards[0]), hand1->n_cards-1, sizeof(deck_t *), card_ptr_comp));
+  hand_eval_t evaluated_hand2 = evaluate_hand(qsort(&(hand2->cards[0]), hand2->n_cards-1, sizeof(deck_t *), card_ptr_comp));
   if(evaluated_hand1.ranking > evaluated_hand2.ranking) return 1;
   if(evaluated_hand2.ranking > evaluated_hand1.ranking) return -1;
   for(int i = 0; i < 5; i++){
