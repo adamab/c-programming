@@ -167,7 +167,7 @@ void copy_straight(card_t ** to, deck_t *from, size_t ind, suit_t fs, size_t cou
     if (from->cards[ind]->value == nextv &&
 	(fs == NUM_SUITS || from->cards[ind]->suit == fs)){
       to[to_ind] = from->cards[ind];
-      to_ind++;
+      to_ind+=1;
       count--;
       nextv--;
     }
