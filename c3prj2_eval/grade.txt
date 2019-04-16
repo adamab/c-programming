@@ -1,0 +1,549 @@
+Grading at Thu Apr 11 04:56:38 UTC 2019
+Compiling your code
+rm -f test poker cards.o my-test-main.o *~
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o deck.o deck.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o eval.o eval.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o cards.o cards.c
+gcc -o test-eval -ggdb3 deck.o deck-c4.o eval-c4.o eval.o test-eval.o cards.o input.o future.o
+Testcase 1: Trying hands with nothing
+Valgrind returned an error status
+==1488== Memcheck, a memory error detector
+==1488== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1488== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1488== Command: ./test-eval inp.1.txt
+==1488== Parent PID: 1487
+==1488== 
+==1488== Conditional jump or move depends on uninitialised value(s)
+==1488==    at 0x402575: ranking_to_string (cards.c:17)
+==1488==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1488==    by 0x4023CC: main (test-eval.c:116)
+==1488== 
+==1488== Use of uninitialised value of size 8
+==1488==    at 0x400C4E: print_hand (deck.c:18)
+==1488==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1488==    by 0x4023CC: main (test-eval.c:116)
+==1488== 
+==1488== Conditional jump or move depends on uninitialised value(s)
+==1488==    at 0x40252B: assert_card_valid (cards.c:9)
+==1488==    by 0x4025DA: value_letter (cards.c:41)
+==1488==    by 0x402697: print_card (cards.c:86)
+==1488==    by 0x400C55: print_hand (deck.c:18)
+==1488==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1488==    by 0x4023CC: main (test-eval.c:116)
+==1488== 
+==1488== 
+==1488== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1488==    at 0x4E6F428: raise (raise.c:54)
+==1488==    by 0x4E71029: abort (abort.c:89)
+==1488==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1488==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1488==    by 0x402545: assert_card_valid (cards.c:9)
+==1488==    by 0x4025DA: value_letter (cards.c:41)
+==1488==    by 0x402697: print_card (cards.c:86)
+==1488==    by 0x400C55: print_hand (deck.c:18)
+==1488==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1488==    by 0x4023CC: main (test-eval.c:116)
+==1488== 
+==1488== HEAP SUMMARY:
+==1488==     in use at exit: 896 bytes in 18 blocks
+==1488==   total heap usage: 34 allocs, 16 frees, 9,571 bytes allocated
+==1488== 
+==1488== LEAK SUMMARY:
+==1488==    definitely lost: 0 bytes in 0 blocks
+==1488==    indirectly lost: 0 bytes in 0 blocks
+==1488==      possibly lost: 0 bytes in 0 blocks
+==1488==    still reachable: 896 bytes in 18 blocks
+==1488==         suppressed: 0 bytes in 0 blocks
+==1488== Rerun with --leak-check=full to see details of leaked memory
+==1488== 
+==1488== For counts of detected and suppressed errors, rerun with: -v
+==1488== Use --track-origins=yes to see where uninitialised values come from
+==1488== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 2: Trying hands with pairs
+Valgrind returned an error status
+==1493== Memcheck, a memory error detector
+==1493== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1493== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1493== Command: ./test-eval inp.2.txt
+==1493== Parent PID: 1492
+==1493== 
+==1493== Conditional jump or move depends on uninitialised value(s)
+==1493==    at 0x402575: ranking_to_string (cards.c:17)
+==1493==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1493==    by 0x4023CC: main (test-eval.c:116)
+==1493== 
+==1493== Use of uninitialised value of size 8
+==1493==    at 0x400C4E: print_hand (deck.c:18)
+==1493==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1493==    by 0x4023CC: main (test-eval.c:116)
+==1493== 
+==1493== Conditional jump or move depends on uninitialised value(s)
+==1493==    at 0x40252B: assert_card_valid (cards.c:9)
+==1493==    by 0x4025DA: value_letter (cards.c:41)
+==1493==    by 0x402697: print_card (cards.c:86)
+==1493==    by 0x400C55: print_hand (deck.c:18)
+==1493==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1493==    by 0x4023CC: main (test-eval.c:116)
+==1493== 
+==1493== 
+==1493== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1493==    at 0x4E6F428: raise (raise.c:54)
+==1493==    by 0x4E71029: abort (abort.c:89)
+==1493==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1493==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1493==    by 0x402545: assert_card_valid (cards.c:9)
+==1493==    by 0x4025DA: value_letter (cards.c:41)
+==1493==    by 0x402697: print_card (cards.c:86)
+==1493==    by 0x400C55: print_hand (deck.c:18)
+==1493==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1493==    by 0x4023CC: main (test-eval.c:116)
+==1493== 
+==1493== HEAP SUMMARY:
+==1493==     in use at exit: 880 bytes in 17 blocks
+==1493==   total heap usage: 32 allocs, 15 frees, 9,515 bytes allocated
+==1493== 
+==1493== LEAK SUMMARY:
+==1493==    definitely lost: 0 bytes in 0 blocks
+==1493==    indirectly lost: 0 bytes in 0 blocks
+==1493==      possibly lost: 0 bytes in 0 blocks
+==1493==    still reachable: 880 bytes in 17 blocks
+==1493==         suppressed: 0 bytes in 0 blocks
+==1493== Rerun with --leak-check=full to see details of leaked memory
+==1493== 
+==1493== For counts of detected and suppressed errors, rerun with: -v
+==1493== Use --track-origins=yes to see where uninitialised values come from
+==1493== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 3: Trying hands with 2 pairs
+Valgrind returned an error status
+==1498== Memcheck, a memory error detector
+==1498== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1498== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1498== Command: ./test-eval inp.3.txt
+==1498== Parent PID: 1497
+==1498== 
+==1498== Conditional jump or move depends on uninitialised value(s)
+==1498==    at 0x402575: ranking_to_string (cards.c:17)
+==1498==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1498==    by 0x4023CC: main (test-eval.c:116)
+==1498== 
+==1498== Use of uninitialised value of size 8
+==1498==    at 0x400C4E: print_hand (deck.c:18)
+==1498==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1498==    by 0x4023CC: main (test-eval.c:116)
+==1498== 
+==1498== Conditional jump or move depends on uninitialised value(s)
+==1498==    at 0x40252B: assert_card_valid (cards.c:9)
+==1498==    by 0x4025DA: value_letter (cards.c:41)
+==1498==    by 0x402697: print_card (cards.c:86)
+==1498==    by 0x400C55: print_hand (deck.c:18)
+==1498==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1498==    by 0x4023CC: main (test-eval.c:116)
+==1498== 
+==1498== 
+==1498== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1498==    at 0x4E6F428: raise (raise.c:54)
+==1498==    by 0x4E71029: abort (abort.c:89)
+==1498==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1498==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1498==    by 0x402545: assert_card_valid (cards.c:9)
+==1498==    by 0x4025DA: value_letter (cards.c:41)
+==1498==    by 0x402697: print_card (cards.c:86)
+==1498==    by 0x400C55: print_hand (deck.c:18)
+==1498==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1498==    by 0x4023CC: main (test-eval.c:116)
+==1498== 
+==1498== HEAP SUMMARY:
+==1498==     in use at exit: 864 bytes in 16 blocks
+==1498==   total heap usage: 30 allocs, 14 frees, 9,451 bytes allocated
+==1498== 
+==1498== LEAK SUMMARY:
+==1498==    definitely lost: 0 bytes in 0 blocks
+==1498==    indirectly lost: 0 bytes in 0 blocks
+==1498==      possibly lost: 0 bytes in 0 blocks
+==1498==    still reachable: 864 bytes in 16 blocks
+==1498==         suppressed: 0 bytes in 0 blocks
+==1498== Rerun with --leak-check=full to see details of leaked memory
+==1498== 
+==1498== For counts of detected and suppressed errors, rerun with: -v
+==1498== Use --track-origins=yes to see where uninitialised values come from
+==1498== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 4: Trying hands with 3 of a kind
+Valgrind returned an error status
+==1503== Memcheck, a memory error detector
+==1503== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1503== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1503== Command: ./test-eval inp.4.txt
+==1503== Parent PID: 1502
+==1503== 
+==1503== Conditional jump or move depends on uninitialised value(s)
+==1503==    at 0x402575: ranking_to_string (cards.c:17)
+==1503==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1503==    by 0x4023CC: main (test-eval.c:116)
+==1503== 
+==1503== Use of uninitialised value of size 8
+==1503==    at 0x400C4E: print_hand (deck.c:18)
+==1503==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1503==    by 0x4023CC: main (test-eval.c:116)
+==1503== 
+==1503== Conditional jump or move depends on uninitialised value(s)
+==1503==    at 0x40252B: assert_card_valid (cards.c:9)
+==1503==    by 0x4025DA: value_letter (cards.c:41)
+==1503==    by 0x402697: print_card (cards.c:86)
+==1503==    by 0x400C55: print_hand (deck.c:18)
+==1503==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1503==    by 0x4023CC: main (test-eval.c:116)
+==1503== 
+==1503== 
+==1503== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1503==    at 0x4E6F428: raise (raise.c:54)
+==1503==    by 0x4E71029: abort (abort.c:89)
+==1503==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1503==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1503==    by 0x402545: assert_card_valid (cards.c:9)
+==1503==    by 0x4025DA: value_letter (cards.c:41)
+==1503==    by 0x402697: print_card (cards.c:86)
+==1503==    by 0x400C55: print_hand (deck.c:18)
+==1503==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1503==    by 0x4023CC: main (test-eval.c:116)
+==1503== 
+==1503== HEAP SUMMARY:
+==1503==     in use at exit: 896 bytes in 18 blocks
+==1503==   total heap usage: 34 allocs, 16 frees, 9,571 bytes allocated
+==1503== 
+==1503== LEAK SUMMARY:
+==1503==    definitely lost: 0 bytes in 0 blocks
+==1503==    indirectly lost: 0 bytes in 0 blocks
+==1503==      possibly lost: 0 bytes in 0 blocks
+==1503==    still reachable: 896 bytes in 18 blocks
+==1503==         suppressed: 0 bytes in 0 blocks
+==1503== Rerun with --leak-check=full to see details of leaked memory
+==1503== 
+==1503== For counts of detected and suppressed errors, rerun with: -v
+==1503== Use --track-origins=yes to see where uninitialised values come from
+==1503== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 5: Trying hands with straights
+Valgrind returned an error status
+==1508== Memcheck, a memory error detector
+==1508== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1508== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1508== Command: ./test-eval inp.5.txt
+==1508== Parent PID: 1507
+==1508== 
+==1508== Conditional jump or move depends on uninitialised value(s)
+==1508==    at 0x402575: ranking_to_string (cards.c:17)
+==1508==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1508==    by 0x4023CC: main (test-eval.c:116)
+==1508== 
+==1508== Use of uninitialised value of size 8
+==1508==    at 0x400C4E: print_hand (deck.c:18)
+==1508==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1508==    by 0x4023CC: main (test-eval.c:116)
+==1508== 
+==1508== Conditional jump or move depends on uninitialised value(s)
+==1508==    at 0x40252B: assert_card_valid (cards.c:9)
+==1508==    by 0x4025DA: value_letter (cards.c:41)
+==1508==    by 0x402697: print_card (cards.c:86)
+==1508==    by 0x400C55: print_hand (deck.c:18)
+==1508==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1508==    by 0x4023CC: main (test-eval.c:116)
+==1508== 
+==1508== 
+==1508== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1508==    at 0x4E6F428: raise (raise.c:54)
+==1508==    by 0x4E71029: abort (abort.c:89)
+==1508==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1508==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1508==    by 0x402545: assert_card_valid (cards.c:9)
+==1508==    by 0x4025DA: value_letter (cards.c:41)
+==1508==    by 0x402697: print_card (cards.c:86)
+==1508==    by 0x400C55: print_hand (deck.c:18)
+==1508==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1508==    by 0x4023CC: main (test-eval.c:116)
+==1508== 
+==1508== HEAP SUMMARY:
+==1508==     in use at exit: 864 bytes in 16 blocks
+==1508==   total heap usage: 30 allocs, 14 frees, 9,451 bytes allocated
+==1508== 
+==1508== LEAK SUMMARY:
+==1508==    definitely lost: 0 bytes in 0 blocks
+==1508==    indirectly lost: 0 bytes in 0 blocks
+==1508==      possibly lost: 0 bytes in 0 blocks
+==1508==    still reachable: 864 bytes in 16 blocks
+==1508==         suppressed: 0 bytes in 0 blocks
+==1508== Rerun with --leak-check=full to see details of leaked memory
+==1508== 
+==1508== For counts of detected and suppressed errors, rerun with: -v
+==1508== Use --track-origins=yes to see where uninitialised values come from
+==1508== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 6: Trying hands with flushes
+Valgrind returned an error status
+==1513== Memcheck, a memory error detector
+==1513== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1513== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1513== Command: ./test-eval inp.6.txt
+==1513== Parent PID: 1512
+==1513== 
+==1513== Conditional jump or move depends on uninitialised value(s)
+==1513==    at 0x402575: ranking_to_string (cards.c:17)
+==1513==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1513==    by 0x4023CC: main (test-eval.c:116)
+==1513== 
+==1513== Use of uninitialised value of size 8
+==1513==    at 0x400C4E: print_hand (deck.c:18)
+==1513==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1513==    by 0x4023CC: main (test-eval.c:116)
+==1513== 
+==1513== Conditional jump or move depends on uninitialised value(s)
+==1513==    at 0x40252B: assert_card_valid (cards.c:9)
+==1513==    by 0x4025DA: value_letter (cards.c:41)
+==1513==    by 0x402697: print_card (cards.c:86)
+==1513==    by 0x400C55: print_hand (deck.c:18)
+==1513==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1513==    by 0x4023CC: main (test-eval.c:116)
+==1513== 
+==1513== 
+==1513== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1513==    at 0x4E6F428: raise (raise.c:54)
+==1513==    by 0x4E71029: abort (abort.c:89)
+==1513==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1513==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1513==    by 0x402545: assert_card_valid (cards.c:9)
+==1513==    by 0x4025DA: value_letter (cards.c:41)
+==1513==    by 0x402697: print_card (cards.c:86)
+==1513==    by 0x400C55: print_hand (deck.c:18)
+==1513==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1513==    by 0x4023CC: main (test-eval.c:116)
+==1513== 
+==1513== HEAP SUMMARY:
+==1513==     in use at exit: 896 bytes in 18 blocks
+==1513==   total heap usage: 34 allocs, 16 frees, 9,571 bytes allocated
+==1513== 
+==1513== LEAK SUMMARY:
+==1513==    definitely lost: 0 bytes in 0 blocks
+==1513==    indirectly lost: 0 bytes in 0 blocks
+==1513==      possibly lost: 0 bytes in 0 blocks
+==1513==    still reachable: 896 bytes in 18 blocks
+==1513==         suppressed: 0 bytes in 0 blocks
+==1513== Rerun with --leak-check=full to see details of leaked memory
+==1513== 
+==1513== For counts of detected and suppressed errors, rerun with: -v
+==1513== Use --track-origins=yes to see where uninitialised values come from
+==1513== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 7: Trying hands with full houses
+Valgrind returned an error status
+==1518== Memcheck, a memory error detector
+==1518== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1518== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1518== Command: ./test-eval inp.7.txt
+==1518== Parent PID: 1517
+==1518== 
+==1518== Conditional jump or move depends on uninitialised value(s)
+==1518==    at 0x402575: ranking_to_string (cards.c:17)
+==1518==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1518==    by 0x4023CC: main (test-eval.c:116)
+==1518== 
+==1518== Use of uninitialised value of size 8
+==1518==    at 0x400C4E: print_hand (deck.c:18)
+==1518==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1518==    by 0x4023CC: main (test-eval.c:116)
+==1518== 
+==1518== Conditional jump or move depends on uninitialised value(s)
+==1518==    at 0x40252B: assert_card_valid (cards.c:9)
+==1518==    by 0x4025DA: value_letter (cards.c:41)
+==1518==    by 0x402697: print_card (cards.c:86)
+==1518==    by 0x400C55: print_hand (deck.c:18)
+==1518==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1518==    by 0x4023CC: main (test-eval.c:116)
+==1518== 
+==1518== 
+==1518== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1518==    at 0x4E6F428: raise (raise.c:54)
+==1518==    by 0x4E71029: abort (abort.c:89)
+==1518==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1518==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1518==    by 0x402545: assert_card_valid (cards.c:9)
+==1518==    by 0x4025DA: value_letter (cards.c:41)
+==1518==    by 0x402697: print_card (cards.c:86)
+==1518==    by 0x400C55: print_hand (deck.c:18)
+==1518==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1518==    by 0x4023CC: main (test-eval.c:116)
+==1518== 
+==1518== HEAP SUMMARY:
+==1518==     in use at exit: 928 bytes in 20 blocks
+==1518==   total heap usage: 38 allocs, 18 frees, 9,707 bytes allocated
+==1518== 
+==1518== LEAK SUMMARY:
+==1518==    definitely lost: 0 bytes in 0 blocks
+==1518==    indirectly lost: 0 bytes in 0 blocks
+==1518==      possibly lost: 0 bytes in 0 blocks
+==1518==    still reachable: 928 bytes in 20 blocks
+==1518==         suppressed: 0 bytes in 0 blocks
+==1518== Rerun with --leak-check=full to see details of leaked memory
+==1518== 
+==1518== For counts of detected and suppressed errors, rerun with: -v
+==1518== Use --track-origins=yes to see where uninitialised values come from
+==1518== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 8: Trying hands with 4 of a kind
+Valgrind returned an error status
+==1523== Memcheck, a memory error detector
+==1523== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1523== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1523== Command: ./test-eval inp.8.txt
+==1523== Parent PID: 1522
+==1523== 
+==1523== Conditional jump or move depends on uninitialised value(s)
+==1523==    at 0x402575: ranking_to_string (cards.c:17)
+==1523==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1523==    by 0x4023CC: main (test-eval.c:116)
+==1523== 
+==1523== Use of uninitialised value of size 8
+==1523==    at 0x400C4E: print_hand (deck.c:18)
+==1523==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1523==    by 0x4023CC: main (test-eval.c:116)
+==1523== 
+==1523== Conditional jump or move depends on uninitialised value(s)
+==1523==    at 0x40252B: assert_card_valid (cards.c:9)
+==1523==    by 0x4025DA: value_letter (cards.c:41)
+==1523==    by 0x402697: print_card (cards.c:86)
+==1523==    by 0x400C55: print_hand (deck.c:18)
+==1523==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1523==    by 0x4023CC: main (test-eval.c:116)
+==1523== 
+==1523== 
+==1523== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1523==    at 0x4E6F428: raise (raise.c:54)
+==1523==    by 0x4E71029: abort (abort.c:89)
+==1523==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1523==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1523==    by 0x402545: assert_card_valid (cards.c:9)
+==1523==    by 0x4025DA: value_letter (cards.c:41)
+==1523==    by 0x402697: print_card (cards.c:86)
+==1523==    by 0x400C55: print_hand (deck.c:18)
+==1523==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1523==    by 0x4023CC: main (test-eval.c:116)
+==1523== 
+==1523== HEAP SUMMARY:
+==1523==     in use at exit: 896 bytes in 18 blocks
+==1523==   total heap usage: 34 allocs, 16 frees, 9,571 bytes allocated
+==1523== 
+==1523== LEAK SUMMARY:
+==1523==    definitely lost: 0 bytes in 0 blocks
+==1523==    indirectly lost: 0 bytes in 0 blocks
+==1523==      possibly lost: 0 bytes in 0 blocks
+==1523==    still reachable: 896 bytes in 18 blocks
+==1523==         suppressed: 0 bytes in 0 blocks
+==1523== Rerun with --leak-check=full to see details of leaked memory
+==1523== 
+==1523== For counts of detected and suppressed errors, rerun with: -v
+==1523== Use --track-origins=yes to see where uninitialised values come from
+==1523== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 9: Trying hands with straight flushes
+Valgrind returned an error status
+==1528== Memcheck, a memory error detector
+==1528== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1528== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1528== Command: ./test-eval inp.9.txt
+==1528== Parent PID: 1527
+==1528== 
+==1528== Conditional jump or move depends on uninitialised value(s)
+==1528==    at 0x402575: ranking_to_string (cards.c:17)
+==1528==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1528==    by 0x4023CC: main (test-eval.c:116)
+==1528== 
+==1528== Use of uninitialised value of size 8
+==1528==    at 0x400C4E: print_hand (deck.c:18)
+==1528==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1528==    by 0x4023CC: main (test-eval.c:116)
+==1528== 
+==1528== Conditional jump or move depends on uninitialised value(s)
+==1528==    at 0x40252B: assert_card_valid (cards.c:9)
+==1528==    by 0x4025DA: value_letter (cards.c:41)
+==1528==    by 0x402697: print_card (cards.c:86)
+==1528==    by 0x400C55: print_hand (deck.c:18)
+==1528==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1528==    by 0x4023CC: main (test-eval.c:116)
+==1528== 
+==1528== 
+==1528== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1528==    at 0x4E6F428: raise (raise.c:54)
+==1528==    by 0x4E71029: abort (abort.c:89)
+==1528==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1528==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1528==    by 0x402545: assert_card_valid (cards.c:9)
+==1528==    by 0x4025DA: value_letter (cards.c:41)
+==1528==    by 0x402697: print_card (cards.c:86)
+==1528==    by 0x400C55: print_hand (deck.c:18)
+==1528==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1528==    by 0x4023CC: main (test-eval.c:116)
+==1528== 
+==1528== HEAP SUMMARY:
+==1528==     in use at exit: 864 bytes in 16 blocks
+==1528==   total heap usage: 30 allocs, 14 frees, 9,451 bytes allocated
+==1528== 
+==1528== LEAK SUMMARY:
+==1528==    definitely lost: 0 bytes in 0 blocks
+==1528==    indirectly lost: 0 bytes in 0 blocks
+==1528==      possibly lost: 0 bytes in 0 blocks
+==1528==    still reachable: 864 bytes in 16 blocks
+==1528==         suppressed: 0 bytes in 0 blocks
+==1528== Rerun with --leak-check=full to see details of leaked memory
+==1528== 
+==1528== For counts of detected and suppressed errors, rerun with: -v
+==1528== Use --track-origins=yes to see where uninitialised values come from
+==1528== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+Testcase 10: Trying each type of hand ranking
+Valgrind returned an error status
+==1533== Memcheck, a memory error detector
+==1533== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==1533== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==1533== Command: ./test-eval inp.10.txt
+==1533== Parent PID: 1532
+==1533== 
+==1533== Conditional jump or move depends on uninitialised value(s)
+==1533==    at 0x402575: ranking_to_string (cards.c:17)
+==1533==    by 0x4021AB: describe_hand (test-eval.c:69)
+==1533==    by 0x4023CC: main (test-eval.c:116)
+==1533== 
+==1533== Use of uninitialised value of size 8
+==1533==    at 0x400C4E: print_hand (deck.c:18)
+==1533==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1533==    by 0x4023CC: main (test-eval.c:116)
+==1533== 
+==1533== Conditional jump or move depends on uninitialised value(s)
+==1533==    at 0x40252B: assert_card_valid (cards.c:9)
+==1533==    by 0x4025DA: value_letter (cards.c:41)
+==1533==    by 0x402697: print_card (cards.c:86)
+==1533==    by 0x400C55: print_hand (deck.c:18)
+==1533==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1533==    by 0x4023CC: main (test-eval.c:116)
+==1533== 
+==1533== 
+==1533== Process terminating with default action of signal 6 (SIGABRT): dumping core
+==1533==    at 0x4E6F428: raise (raise.c:54)
+==1533==    by 0x4E71029: abort (abort.c:89)
+==1533==    by 0x4E67BD6: __assert_fail_base (assert.c:92)
+==1533==    by 0x4E67C81: __assert_fail (assert.c:101)
+==1533==    by 0x402545: assert_card_valid (cards.c:9)
+==1533==    by 0x4025DA: value_letter (cards.c:41)
+==1533==    by 0x402697: print_card (cards.c:86)
+==1533==    by 0x400C55: print_hand (deck.c:18)
+==1533==    by 0x4021EC: describe_hand (test-eval.c:74)
+==1533==    by 0x4023CC: main (test-eval.c:116)
+==1533== 
+==1533== HEAP SUMMARY:
+==1533==     in use at exit: 896 bytes in 18 blocks
+==1533==   total heap usage: 34 allocs, 16 frees, 9,571 bytes allocated
+==1533== 
+==1533== LEAK SUMMARY:
+==1533==    definitely lost: 0 bytes in 0 blocks
+==1533==    indirectly lost: 0 bytes in 0 blocks
+==1533==      possibly lost: 0 bytes in 0 blocks
+==1533==    still reachable: 896 bytes in 18 blocks
+==1533==         suppressed: 0 bytes in 0 blocks
+==1533== Rerun with --leak-check=full to see details of leaked memory
+==1533== 
+==1533== For counts of detected and suppressed errors, rerun with: -v
+==1533== Use --track-origins=yes to see where uninitialised values come from
+==1533== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+
+Overall Grade: F
