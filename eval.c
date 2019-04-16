@@ -111,10 +111,10 @@ hand_eval_t build_hand_from_match(deck_t * hand,
     ans.cards[i] = hand->cards[idx+i];
   }
   int j = 0;
-  int k = 1;
+  int k = 0;
   while(remain > 0){
     if(hand->cards[j]->value != card_of_a_kind){
-      ans.cards[5-n+k] = hand->cards[j];
+      ans.cards[4-n+k] = hand->cards[j];
       remain -= 1;
       k +=1;
     }
