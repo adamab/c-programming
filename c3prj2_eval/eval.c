@@ -72,10 +72,19 @@ ssize_t  find_secondary_pair(deck_t * hand,
 }
 
 int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n){
+  if(!(hand->cards[index]->suit == fs || fs == NUM_SUITS)) return 0;
   int straightCount = 1;
-  for(int i = index+1; i < hand->n_cards; i++){
+  int j =0;
+  cards_t filterCards;
+  for(int i = index; i < hand->n_cards; i++){
+    if((hand->cards[i]->suit == fs || fs == NUM_SUITS)){
+      cards_t[j] = hand->cards[i];
+      j += 1;
+    }
+  }
+  for(int i = 0; i < j; i++){
     if(hand->cards[i-1]->value == hand->cards[i]->value) continue;
-    if((hand->cards[i-1]->value == hand->cards[i]->value+1) &&  (hand->cards[i]->suit == fs || fs == NUM_SUITS)) straightCount +=1;
+    if(hand->cards[i-1]->value == hand->cards[i]->value+1) straightCount +=1;
     else {
       if(straightCount >= n) return 2;
       return 0;
