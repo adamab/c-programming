@@ -64,7 +64,7 @@ ssize_t  find_secondary_pair(deck_t * hand,
 			     unsigned * match_counts,
 			     size_t match_idx) {
   int matchValue = hand->cards[match_idx]->value;
-  for(int i = match_idx; i < hand->n_cards; i++){
+  for(int i = 0; i < hand->n_cards; i++){
     if(hand->cards[i]->value == matchValue) continue;
     if(match_counts[i] > 1) return i;
   }
