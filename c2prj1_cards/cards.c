@@ -6,7 +6,7 @@
 
 void assert_card_valid(card_t c) {
   //Assert the value is between 2 and 14
-  assert((c.value >= 2) & (c.value <= 14));
+  //  assert((c.value >= 2) & (c.value <= 14));
   //Assert the suit value is between 0 and 3
   assert((c.suit >= 0) & (c.suit <= 3));
 
