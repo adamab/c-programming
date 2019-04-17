@@ -198,7 +198,7 @@ int find_straight(deck_t * hand, suit_t fs, hand_eval_t * ans) {
   if (hand->n_cards < 5){
     return 0;
   }
-
+  /*
   for(size_t i = 0; i <= hand->n_cards -5; i++) {
     int x = is_straight_at(hand, i, fs);
     if(x > 0){
@@ -206,6 +206,7 @@ int find_straight(deck_t * hand, suit_t fs, hand_eval_t * ans) {
       return 1;
     }
   }
+*/
     //We have to check ACE low straight last
   for(size_t i = 0; i <= hand->n_cards -5; i++) {
     int x = is_straight_at(hand, i, fs);
