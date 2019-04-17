@@ -75,16 +75,16 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n){
   if(!(hand->cards[index]->suit == fs || fs == NUM_SUITS)) return 0;
   int straightCount = 1;
   int j =0;
-  cards_t filterCards;
+  card_t * filterCards[hand->n_cards];
   for(int i = index; i < hand->n_cards; i++){
     if((hand->cards[i]->suit == fs || fs == NUM_SUITS)){
-      filteredCards[j] = hand->cards[i];
+      filterCards[j] = hand->cards[i];
       j += 1;
     }
   }
   for(int i = 1; i < j; i++){
-    if(filteredCards[i-1]->value == filteredCards[i]->value) continue;
-    if(filteredCards[i-1]->value == filteredCards[i]->value+1) straightCount +=1;
+    if(filterCards[i-1]->value == filterCards[i]->value) continue;
+    if(filterCards[i-1]->value == filterCards[i]->value+1) straightCount +=1;
     else {
       if(straightCount >= n) return 2;
       return 0;
