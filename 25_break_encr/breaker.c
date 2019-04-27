@@ -16,15 +16,6 @@ unsigned get_largest_element(unsigned * arr, size_t n) {
   return largestValue;
 }
 
-void updateLetArray(unsigned * letArray, int let){
-  for(int i = 0; i < 26, i ++){
-    if(*let == arr[i][0]){
-      arr[i][1] += 1;
-      break;
-    }
-  }
-}
-
 void breaker(FILE * f) {
   unsigned letArray[26];
   int c = 0;
@@ -33,7 +24,7 @@ void breaker(FILE * f) {
     if (isalpha(c)) {
       c = tolower(c);
       c -= 'a';
-      updateLetArray(letArray, c);
+      letArray[c] += 1;
     }
   }
   largest = get_largest_element(letArray, 26);
