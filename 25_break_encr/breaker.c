@@ -31,7 +31,7 @@ void breaker(FILE * f) {
   printf("%d\n", 4 - largest);
 }
 
-void main(int argc, char ** argv) {
+int main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr,"Usage: breaker inputFileName\n");
     exit(EXIT_FAILURE);
