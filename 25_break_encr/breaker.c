@@ -31,7 +31,7 @@ void breaker(FILE * f) {
     }
   }
   largest = get_largest_element(letArray, 26);
-  printf("%d\n", 4 - largest);
+  printf("%d\n", (largest+22)%26);
 }
 
 int main(int argc, char ** argv) {
