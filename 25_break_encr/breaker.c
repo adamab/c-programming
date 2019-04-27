@@ -18,6 +18,9 @@ unsigned get_largest_element(unsigned * arr, size_t n) {
 
 void breaker(FILE * f) {
   unsigned letArray[26];
+  for(int i = 0; i < 26; i++){
+    letArray[i] = 0;
+  }
   int c = 0;
   int largest = 0;
   while ((c = fgetc(f)) != EOF) {
