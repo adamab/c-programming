@@ -40,19 +40,19 @@ void breaker(FILE * f) {
   printf("%d\n", 4 - largest);
 }
 
-int main(int argc, char ** argv) {
+void main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr,"Usage: breaker inputFileName\n");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Could not open file");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
   breaker(f);
   if (fclose(f) != 0) {
     perror("Failed to close the file to decrypt!");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
   }
 }
