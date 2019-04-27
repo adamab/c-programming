@@ -46,4 +46,5 @@ void main(int argc, char ** argv) {
     perror("Failed to close the file to decrypt!");
     exit(EXIT_FAILURE);
   }
+  exit(EXIT_SUCCESS);
 }
