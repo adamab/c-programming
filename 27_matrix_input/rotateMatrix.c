@@ -26,18 +26,15 @@ void rotate(char matrix[10][10]) {
 }
 
 void printMatrix(char matrix[10][10]) {
-  //Check for NULL case and return
   if (matrix == NULL) {
     fprintf(stderr, "No matrix passed to printMatrix");
     exit(EXIT_FAILURE);
   }
-  //Loop i from 0 to 9
   for (int i = 0; i < 10; i++){
-    //Loop j from 0 to 9
     for (int j = 0; j < 10; j++){
-      //Set tmpMatrix[i][j] to equal matrix[i][j]
-      printf(matrix[i][j]);
+      printf(&matrix[i][j]);
     }
+    printf("\n");
   }
 }
 
