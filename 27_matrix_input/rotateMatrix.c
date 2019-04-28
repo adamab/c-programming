@@ -25,6 +25,22 @@ void rotate(char matrix[10][10]) {
   }
 }
 
+void printMatrix(char matrix[10][10]) {
+  //Check for NULL case and return
+  if (matrix == NULL) {
+    fprintf(stderr, "No matrix passed to printMatrix");
+    exit(EXIT_FAILURE);
+  }
+  //Loop i from 0 to 9
+  for (int i = 0; i < 10; i++){
+    //Loop j from 0 to 9
+    for (int j = 0; j < 10; j++){
+      //Set tmpMatrix[i][j] to equal matrix[i][j]
+      printf(matrix[i][j]);
+    }
+  }
+}
+
 void rotateMatrix(FILE * f){
   int i = 0, j = 0, c = 0;
   char matrix[10][10];
@@ -52,7 +68,7 @@ void rotateMatrix(FILE * f){
     exit(EXIT_FAILURE);
   }
   rotate(matrix);
-  printf(matrix);
+  printMatrix(matrix);
 }
 
 int main(int argc, char ** argv) {
