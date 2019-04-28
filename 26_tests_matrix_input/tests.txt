@@ -8,3 +8,5 @@ test5.txt
 test8.txt another.txt two more
 test9.txt
 test10.txt
+test11.txt
+test12.txt
