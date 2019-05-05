@@ -27,12 +27,12 @@ void sortStdin(){
   size_t totSize = 0;
   char ** lineArray = malloc(sizeof(**lineArray));
   int cnt = 0;
-  while(*line >= 0){
-    printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
-    getline(&line, &size, stdin);
+  printf("Please enter the first line to add to the corpus for sorting:\n");
+  while(getline(&line, &size, stdin); >= 0){
     totSize += size;
     if(*line >= 0) addLineArray(lineArray, line, cnt, totSize);
     cnt += 1;
+    printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
   }
   sortData(lineArray, cnt);
   for(int i = 0; i < cnt; i++){
