@@ -31,7 +31,7 @@ void sortStdin(){
     printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
     getline(&line, &size, stdin);
     totSize += size;
-    if(*line != "END") addLineArray(lineArray, line, cnt, totSize);
+    if(*line >= 0) addLineArray(lineArray, line, cnt, totSize);
     cnt += 1;
   }
   sortData(lineArray, cnt);
