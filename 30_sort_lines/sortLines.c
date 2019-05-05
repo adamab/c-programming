@@ -38,6 +38,7 @@ void sortStdin(){
   for(int i = 0; i < cnt; i++){
     printf("%s", lineArray[i]);
   }
+  free(lineArray);
 }
 
 void sortFiles(char ** argv, int argc){
@@ -62,6 +63,7 @@ void sortFiles(char ** argv, int argc){
       printf("%s", lineArray[j]);
     }
   }
+  free(lineArray);
   printf("All files sorted!");
 }
 
