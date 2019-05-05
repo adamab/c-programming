@@ -18,7 +18,7 @@ void sortData(char ** data, size_t count) {
 
 void addLineArray(char ** lineArray, char * line, int cnt, size_t totSize){
   realloc(lineArray, totSize*sizeof(**lineArray));
-  lineArray[cnt] = *line;
+  lineArray[cnt] = line;
 }
 
 void sortStdin(){
