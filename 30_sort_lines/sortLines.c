@@ -17,7 +17,7 @@ void sortData(char ** data, size_t count) {
 }
 
 void addLineArray(char ** lineArray, char * line, int cnt, size_t totSize){
-  lineArray = realloc(lineArray, totSize*sizeof(**lineArray));
+  lineArray = realloc(lineArray, totSize*sizeof(*lineArray));
   lineArray[cnt] = line;
 }
 
@@ -25,7 +25,7 @@ void sortStdin(){
   char * line=NULL;
   size_t size = 0;
   size_t totSize = 0;
-  char ** lineArray = malloc(sizeof(**lineArray));
+  char ** lineArray = malloc(sizeof(*lineArray));
   int cnt = 0;
   printf("Please enter the first line to add to the corpus for sorting:\n");
   while(getline(&line, &size, stdin) > 0){
@@ -44,7 +44,7 @@ void sortStdin(){
 void sortFiles(char ** argv, int argc){
   char * line=NULL;
   size_t size = 0;
-  char ** lineArray = malloc(sizeof(**lineArray));
+  char ** lineArray = malloc(sizeof(*lineArray));
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
     size_t totSize = 0;
