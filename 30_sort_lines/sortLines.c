@@ -28,7 +28,7 @@ void sortStdin(){
   char ** lineArray = malloc(sizeof(**lineArray));
   int cnt = 0;
   printf("Please enter the first line to add to the corpus for sorting:\n");
-  while(getline(&line, &size, stdin); >= 0){
+  while(getline(&line, &size, stdin) >= 0){
     totSize += size;
     if(*line >= 0) addLineArray(lineArray, line, cnt, totSize);
     cnt += 1;
