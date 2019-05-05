@@ -17,19 +17,19 @@ void sortData(char ** data, size_t count) {
 }
 
 void addLineArray(char ** lineArray, char * line, int cnt, size_t totSize){
-  realloc(lineArray, totSize*sizeof(**lineArray));
+  lineArray = realloc(lineArray, totSize*sizeof(**lineArray));
   lineArray[cnt] = line;
 }
 
 void sortStdin(){
-  char * line;
+  char * line=NULL;
   size_t size = 0;
   size_t totSize = 0;
   char ** lineArray = malloc(sizeof(**lineArray));
   int cnt = 0;
-  while(*line != "END"){
-    printf("Please enter a line to add to the corpus for sorting, or enter the word END to finish:\n");
-    getline(line, &size, stdin);
+  while(*line >= 0){
+    printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
+    getline(&line, &size, stdin);
     totSize += size;
     if(*line != "END") addLineArray(lineArray, line, cnt, totSize);
     cnt += 1;
@@ -41,17 +41,18 @@ void sortStdin(){
 }
 
 void sortFiles(char ** argv, int argc){
-  char * line;
+  char * line=NULL;
   size_t size = 0;
   char ** lineArray = malloc(sizeof(**lineArray));
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
+    size_t totSize = 0;
     FILE * f = fopen(argv[i], "r");
     if(f == NULL){
       perror("Could not open file");
       exit(EXIT_FAILURE);
     }
-    while(getline(line, &size, f) >= 0){
+    while(getline(&line, &size, f) >= 0){
       totSize += size;
       addLineArray(lineArray, line, cnt, totSize);
       cnt += 1;
