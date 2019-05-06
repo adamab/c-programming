@@ -30,7 +30,7 @@ void sortStdin(){
   printf("Please enter all of the lines to add to the corpus for sorting, then use control-D to end the list:\n");
   while(getline(&line, &size, stdin) >= 0){
     lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
-    toLowerString(line);
+    toLowerString(line, size);
     lineArray[cnt] = line;
     line = NULL;
     cnt += 1;
@@ -56,7 +56,7 @@ void sortFile(char * fileName){
     }
     while(getline(&line, &size, f) >= 0){
       lineArray = realloc(lineArray,(cnt+1)*sizeof(*lineArray));
-      toLowerString(line);
+      toLowerString(line, size);
       lineArray[cnt] = line;
       line = NULL;
       cnt += 1;
