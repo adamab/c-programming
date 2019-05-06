@@ -37,7 +37,7 @@ void sortStdin(){
   free(lineArray);
 }
 
-sortFile(char * fileName){
+void sortFile(char * fileName){
     int cnt = 0;
     char * line=NULL;
     size_t size = 0;
