@@ -21,7 +21,7 @@ void sortStdin(){
   size_t size = 0;
   char ** lineArray = NULL;
   int cnt = 0;
-  printf("Please enter all of the lines to add to the corpus for sorting, then hit enter twice after the last line:\n");
+  printf("Please enter all of the lines to add to the corpus for sorting, then use control-D to end the list:\n");
   while(getline(&line, &size, stdin) >= 0){
     lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
     lineArray[cnt] = line;
