@@ -37,14 +37,12 @@ void sortStdin(){
   free(lineArray);
 }
 
-void sortFiles(char ** argv, int argc){
-  char * line=NULL;
-  size_t size = 0;
-  char ** lineArray = NULL;
-  FILE * f = NULL;
-  for(int i = 1; i < argc; i ++){
+sortFile(char * fileName){
     int cnt = 0;
-    f = fopen(argv[i], "r");
+    char * line=NULL;
+    size_t size = 0;
+    char ** lineArray = NULL;
+    FILE * f = fopen(fileName, "r");
     if(f == NULL){
       perror("Could not open file");
       exit(EXIT_FAILURE);
@@ -57,21 +55,26 @@ void sortFiles(char ** argv, int argc){
     }
     free(line);
     sortData(lineArray, cnt);
-    for(int j = 0; j < cnt; j++){
-      printf("%s", lineArray[j]);
-      free(lineArray[j]);
+    for(int i = 0; i < cnt; i++){
+      printf("%s", lineArray[i]);
+      free(lineArray[i]);
     }
-  }
-  free(lineArray);
-  if (fclose(f) != 0) {
-    perror("Failed to close the input file!");
-    exit(EXIT_FAILURE);
-   }
-  printf("All files sorted!\n");
+    free(lineArray);
+    if (fclose(f) != 0) {
+      perror("Failed to close the input file!");
+      exit(EXIT_FAILURE);
+    }
 }
 
 int main(int argc, char ** argv) {
-  if(argc == 1) sortStdin();
-  if(argc > 1) sortFiles(argv, argc);
+  if(argc == 1) {
+    sortStdin();
+  }
+  else {
+    for(int i = 1; i < argc; i ++){
+      sortFile(argv[i]);
+    }
+    printf("All files sorted!\n");
+  }
   return EXIT_SUCCESS;
 }
