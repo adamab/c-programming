@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 
 //This function is used to figure out the ordering
 //of the strings in qsort.  You do not need
@@ -15,13 +15,13 @@ int stringOrder(const void * vp1, const void * vp2) {
 void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
-/*
+///*
 void toLowerString(char * line, size_t size){
   for(int i = 0; i < size; i++){
     line[i] = tolower(line[i]);
   }
 }
-*/
+//*/
 void sortStdin(){
   char * line=NULL;
   size_t size = 0;
@@ -30,7 +30,7 @@ void sortStdin(){
   printf("Please enter all of the lines to add to the corpus for sorting, then use control-D to end the list:\n");
   while(getline(&line, &size, stdin) >= 0){
     lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
-    //    toLowerString(line);
+    toLowerString(line);
     lineArray[cnt] = line;
     line = NULL;
     cnt += 1;
@@ -56,7 +56,7 @@ void sortFile(char * fileName){
     }
     while(getline(&line, &size, f) >= 0){
       lineArray = realloc(lineArray,(cnt+1)*sizeof(*lineArray));
-      //      toLowerString(line);
+      toLowerString(line);
       lineArray[cnt] = line;
       line = NULL;
       cnt += 1;
