@@ -41,9 +41,10 @@ void sortFiles(char ** argv, int argc){
   char * line=NULL;
   size_t size = 0;
   char ** lineArray = NULL;
+  FILE * f = NULL;
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
-    FILE * f = fopen(argv[i], "r");
+    f = fopen(argv[i], "r");
     if(f == NULL){
       perror("Could not open file");
       exit(EXIT_FAILURE);
