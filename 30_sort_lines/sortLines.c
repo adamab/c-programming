@@ -19,15 +19,14 @@ void sortData(char ** data, size_t count) {
 void sortStdin(){
   char * line=NULL;
   size_t size = 0;
-  char ** lineArray = malloc(sizeof(*lineArray));
+  char ** lineArray = NULL;
   int cnt = 0;
-  printf("Please enter the first line to add to the corpus for sorting:\n");
-  while(getline(&line, &size, stdin) > 0){
+  printf("Please enter all of the lines to add to the corpus for sorting, then hit enter twice after the last line:\n");
+  while(getline(&line, &size, stdin) >= 0){
     lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
     lineArray[cnt] = line;
     line = NULL;
     cnt += 1;
-    printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
   }
   free(line);
   sortData(lineArray, cnt);
@@ -41,7 +40,7 @@ void sortStdin(){
 void sortFiles(char ** argv, int argc){
   char * line=NULL;
   size_t size = 0;
-  char ** lineArray = malloc(sizeof(*lineArray));
+  char ** lineArray = NULL;
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
     FILE * f = fopen(argv[i], "r");
