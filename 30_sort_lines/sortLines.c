@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 
 //This function is used to figure out the ordering
 //of the strings in qsort.  You do not need
