@@ -1,19 +1,16 @@
-Grading at Mon May  6 01:43:04 UTC 2019
+Grading at Mon May  6 01:44:43 UTC 2019
 Attempting to compile sortLines.c
-sortLines.c: In function ‘sortStdin’:
-sortLines.c:33:5: error: too few arguments to function ‘toLowerString’
-     toLowerString(line);
-     ^
-sortLines.c:19:6: note: declared here
- void toLowerString(char * line, size_t size){
-      ^
-sortLines.c: In function ‘sortFile’:
-sortLines.c:59:7: error: too few arguments to function ‘toLowerString’
-       toLowerString(line);
-       ^
-sortLines.c:19:6: note: declared here
- void toLowerString(char * line, size_t size){
-      ^
-The code did not compile!
+#################################################
+testcase1:
+valgrind reported memory errors
+#################################################
+testcase2:
+Your output is incorrect
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+valgrind reported memory errors
 
 Overall Grade: F
