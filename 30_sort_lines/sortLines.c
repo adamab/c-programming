@@ -16,27 +16,24 @@ void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
 
-void addLineArray(char ** lineArray, char * line, int cnt, size_t totSize){
-  lineArray = realloc(lineArray, totSize*sizeof(*lineArray));
-  lineArray[cnt] = line;
-}
-
 void sortStdin(){
   char * line=NULL;
   size_t size = 0;
-  size_t totSize = 0;
   char ** lineArray = malloc(sizeof(*lineArray));
   int cnt = 0;
   printf("Please enter the first line to add to the corpus for sorting:\n");
-  while(getline(&line, &size, stdin) > 0){
-    totSize += size;
-    if(*line > 0) addLineArray(lineArray, line, cnt, totSize);
+  while(getline(&line, &size, stdin) >= 0){
+    lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
+    lineArray[cnt] = line;
+    line = NULL;
     cnt += 1;
     printf("Please enter a line to add to the corpus for sorting, or just hit Enter to finish:\n");
   }
+  free(line);
   sortData(lineArray, cnt);
   for(int i = 0; i < cnt; i++){
     printf("%s", lineArray[i]);
+    free(lineArray[i]);
   }
   free(lineArray);
 }
@@ -47,20 +44,22 @@ void sortFiles(char ** argv, int argc){
   char ** lineArray = malloc(sizeof(*lineArray));
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
-    size_t totSize = 0;
     FILE * f = fopen(argv[i], "r");
     if(f == NULL){
       perror("Could not open file");
       exit(EXIT_FAILURE);
     }
     while(getline(&line, &size, f) >= 0){
-      totSize += size;
-      addLineArray(lineArray, line, cnt, totSize);
+      lineArray = realloc(lineArray,(cnt+1)*sizeof(*lineArray));
+      lineArray[cnt] = line;
+      line = NULL;
       cnt += 1;
     }
+    free(line);
     sortData(lineArray, cnt);
     for(int j = 0; j < cnt; j++){
       printf("%s", lineArray[j]);
+      free(lineArray[j]);
     }
   }
   free(lineArray);
