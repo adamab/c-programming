@@ -38,13 +38,12 @@ void sortStdin(){
 }
 
 void sortFiles(char ** argv, int argc){
-  char * line=NULL;
-  size_t size = 0;
-  char ** lineArray = NULL;
-  FILE * f = NULL;
   for(int i = 1; i < argc; i ++){
     int cnt = 0;
-    f = fopen(argv[i], "r");
+    char * line=NULL;
+    size_t size = 0;
+    char ** lineArray = NULL;
+    FILE * f = fopen(argv[i], "r");
     if(f == NULL){
       perror("Could not open file");
       exit(EXIT_FAILURE);
@@ -61,12 +60,12 @@ void sortFiles(char ** argv, int argc){
       printf("%s", lineArray[j]);
       free(lineArray[j]);
     }
+    free(lineArray);
+    if (fclose(f) != 0) {
+      perror("Failed to close the input file!");
+      exit(EXIT_FAILURE);
+    }
   }
-  free(lineArray);
-  if (fclose(f) != 0) {
-    perror("Failed to close the input file!");
-    exit(EXIT_FAILURE);
-   }
   printf("All files sorted!\n");
 }
 
