@@ -15,22 +15,15 @@ int stringOrder(const void * vp1, const void * vp2) {
 void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
-///*
-void toLowerString(char * line, size_t size){
-  for(int i = 0; i < size; i++){
-    line[i] = tolower(line[i]);
-  }
-}
-//*/
+
 void sortStdin(){
   char * line=NULL;
   size_t size = 0;
   char ** lineArray = NULL;
   int cnt = 0;
-  printf("Please enter all of the lines to add to the corpus for sorting, then use control-D to end the list:\n");
+  //  printf("Please enter all of the lines to add to the corpus for sorting, then use control-D to end the list:\n");
   while(getline(&line, &size, stdin) >= 0){
     lineArray = realloc(lineArray, (cnt+1)*sizeof(*lineArray));
-    toLowerString(line, size);
     lineArray[cnt] = line;
     line = NULL;
     cnt += 1;
@@ -56,7 +49,6 @@ void sortFile(char * fileName){
     }
     while(getline(&line, &size, f) >= 0){
       lineArray = realloc(lineArray,(cnt+1)*sizeof(*lineArray));
-      toLowerString(line, size);
       lineArray[cnt] = line;
       line = NULL;
       cnt += 1;
@@ -82,7 +74,6 @@ int main(int argc, char ** argv) {
     for(int i = 1; i < argc; i ++){
       sortFile(argv[i]);
     }
-    //    printf("All files sorted!\n");
   }
   return EXIT_SUCCESS;
 }
