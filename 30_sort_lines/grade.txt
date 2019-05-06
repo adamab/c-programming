@@ -1,22 +1,19 @@
-Grading at Mon May  6 01:40:07 UTC 2019
+Grading at Mon May  6 01:43:04 UTC 2019
 Attempting to compile sortLines.c
-#################################################
-testcase1:
-testcase1 passed, your program successfully indicated a failure
-  - Valgrind was clean (no errors, no memory leaks)
-valgrind was clean
-#################################################
-testcase2:
-Your output is incorrect
-#################################################
-testcase3:
-Your output is correct
-  - Valgrind was clean (no errors, no memory leaks)
-valgrind was clean
-#################################################
-testcase4:
-Your output is correct
-  - Valgrind was clean (no errors, no memory leaks)
-valgrind was clean
+sortLines.c: In function ‘sortStdin’:
+sortLines.c:33:5: error: too few arguments to function ‘toLowerString’
+     toLowerString(line);
+     ^
+sortLines.c:19:6: note: declared here
+ void toLowerString(char * line, size_t size){
+      ^
+sortLines.c: In function ‘sortFile’:
+sortLines.c:59:7: error: too few arguments to function ‘toLowerString’
+       toLowerString(line);
+       ^
+sortLines.c:19:6: note: declared here
+ void toLowerString(char * line, size_t size){
+      ^
+The code did not compile!
 
-Overall Grade: C
+Overall Grade: F
