@@ -15,13 +15,13 @@ int stringOrder(const void * vp1, const void * vp2) {
 void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
-
+/*
 void toLowerString(char * line, size_t size){
   for(int i = 0; i < size; i++){
     line[i] = tolower(line[i]);
   }
 }
-
+*/
 void sortStdin(){
   char * line=NULL;
   size_t size = 0;
