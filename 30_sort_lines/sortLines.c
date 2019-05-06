@@ -54,10 +54,6 @@ void sortFiles(char ** argv, int argc){
       line = NULL;
       cnt += 1;
     }
-    if (fclose(f) != 0) {
-      perror("Failed to close the input file!");
-      exit(EXIT_FAILURE);
-    }
     free(line);
     sortData(lineArray, cnt);
     for(int j = 0; j < cnt; j++){
@@ -66,7 +62,11 @@ void sortFiles(char ** argv, int argc){
     }
   }
   free(lineArray);
-  printf("All files sorted!");
+  if (fclose(f) != 0) {
+    perror("Failed to close the input file!");
+    exit(EXIT_FAILURE);
+   }
+  printf("All files sorted!\n");
 }
 
 int main(int argc, char ** argv) {
