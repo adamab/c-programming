@@ -45,10 +45,10 @@ board_t * makeBoard(int w, int h, int numMines) {
   ansBoard->height = h;
   ansBoard->width = w;
   ansBoard->totalMines = numMines;
-  ansBoard->board = malloc(w*sizeof(*ansBoard->board));
-  for(int i = 0; i < w; i++){
-    ansBoard->board[i] = malloc(h*sizeof(*ansBoard->board[i]));
-    for(int j = 0; j < h; j++){
+  ansBoard->board = malloc(h*sizeof(*ansBoard->board));
+  for(int i = 0; i < h; i++){
+    ansBoard->board[i] = malloc(w*sizeof(*ansBoard->board[i]));
+    for(int j = 0; j < w; j++){
       ansBoard->board[i][j] = UNKNOWN;
     }
   }
