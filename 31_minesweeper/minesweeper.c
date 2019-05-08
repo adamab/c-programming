@@ -109,9 +109,13 @@ void printBoard(board_t * b) {
 }
 int countMines(board_t * b, int x, int y) {
   int mineCnt = 0;
-  for(int i = 0; i < 3; i ++){
-    for(int j = 0; j < 3; j++){
-      if(!(x-1+i < 0 || x-1+i >= b->width || y-1+j < 0 || y-1+j >= b->height || i != 1 || j != 1)){
+  for (int dy = -1; dy <=1 ; dy++) {
+    for (int dx = -1; dx <=1 ; dx++) {
+      int nx = x + dx;
+      int ny = y + dy;
+      if (nx >= 0 && nx < b->width &&
+	  ny >= 0 && ny < b->height &&
+	  (dy != 0 || dx != 0)) {
 	mineCnt += IS_MINE(b->board[i][j]);
       }
     }
