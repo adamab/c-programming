@@ -10,11 +10,11 @@ kvarray_t * readKVs(const char * fname) {
    * the argument passed to line.
    */
   char * line = NULL;
-  int sz = NULL;
+  size_t sz = 0;
   kvarray_t * kvArray = malloc(sizeof(*kvArray));
   if(kvArray == NULL){
     perror("Not enough memory to create Key Value array");
-    eixt(EXIT_FAILURE);
+    exit(EXIT_FAILURE);
   }
   FILE * f = fopen(fname, "r");
   int cnt = 0;
@@ -28,8 +28,8 @@ kvarray_t * readKVs(const char * fname) {
       perror("Not enough memory to create additional Key Value pair array");
       eixt(EXIT_FAILURE);
     }
-    kvArray->kv[cnt]->key = strtok(line, '='); 
-    kvArray->kv[cnt]->value = strtok(NULL, '');
+    kvArray->kv[cnt]->key = strtok(line, "="); 
+    kvArray->kv[cnt]->value = strtok(NULL, "");
     line = NULL;
     cnt++;
   }
