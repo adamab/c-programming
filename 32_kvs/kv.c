@@ -26,7 +26,7 @@ kvarray_t * readKVs(const char * fname) {
     kvArray->kv = realloc(kvArray->kv, (cnt+1)*sizeof(*kvArray->kv));
     if(kvArray == NULL){
       perror("Not enough memory to create additional Key Value pair array");
-      eixt(EXIT_FAILURE);
+      exit(EXIT_FAILURE);
     }
     kvArray->kv[cnt]->key = strtok(line, "="); 
     kvArray->kv[cnt]->value = strtok(NULL, "");
