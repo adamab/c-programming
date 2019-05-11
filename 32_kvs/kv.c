@@ -3,6 +3,17 @@
 #include <string.h>
 #include "kv.h"
 
+char * splitKVs(char * line, char * splitChar, uint forKey){
+  /* This function gives the key or value based on the
+   * argument passed to forKey (1 = key, 0 = value) in
+   * the argument passed to line.
+   */
+  char * ans = malloc(strlen(line)*sizeof(*line));
+  ans = strtok(line, splitChar);//Returns the first part of the split line
+  if(forKey == 0) ans = strtok(NULL, "");//Returns all of the remaining line after the split, "" will not find another split point in the string
+  ans = realloc(ans, strlen(ans)*sizeof(*ans));//Set the allocation to be the size of the string to not over allocate memory
+  return ans;
+}
 
 kvarray_t * readKVs(const char * fname) {
   /* This function gives the key or value based on the
@@ -11,25 +22,25 @@ kvarray_t * readKVs(const char * fname) {
    */
   char * line = NULL;
   size_t sz = 0;
+  int cnt = 0;
   kvarray_t * kvArray = malloc(sizeof(*kvArray));
   if(kvArray == NULL){
     perror("Not enough memory to create Key Value array");
     exit(EXIT_FAILURE);
   }
   FILE * f = fopen(fname, "r");
-  int cnt = 0;
   if(f == NULL){
     perror("Could not open file");
     exit(EXIT_FAILURE);
   }
   while(getline(&line, &sz, f) >= 0){
     kvArray->kv = realloc(kvArray->kv, (cnt+1)*sizeof(*kvArray->kv));
-    if(kvArray == NULL){
+    if(kvArray->kv == NULL){
       perror("Not enough memory to create additional Key Value pair array");
       exit(EXIT_FAILURE);
     }
-    kvArray->kv[cnt]->key = strtok(line, "="); 
-    kvArray->kv[cnt]->value = strtok(NULL, "");
+    kvArray->kv[cnt]->key = splitKVs(line, "=", 1); 
+    kvArray->kv[cnt]->value = splitKVs(line, "=", 0);
     line = NULL;
     cnt++;
   }
