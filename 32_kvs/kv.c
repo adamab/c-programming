@@ -40,10 +40,12 @@ kvarray_t * readKVs(const char * fname) {
       perror("Not enough memory to create additional Key Value pair array");
       exit(EXIT_FAILURE);
     }
-    kvArray->kv[cnt]->key = NULL;
-    kvArray->kv[cnt]->value = NULL;
+    kvArray->kv[cnt]->key = realloc(kvArray->kv[cnt]->key, strlen(line)*sizeof(*line));
+    kvArray->kv[cnt]->value = realloc(kvArray->kv[cnt]->value, strlen(line)*sizeof(*line));
     kvArray->kv[cnt]->key = splitKVs(line, "=", 1); 
     kvArray->kv[cnt]->value = splitKVs(line, "=", 0);
+    kvArray->kv[cnt]->key = realloc(kvArray->kv[cnt]->key, strlen(kvArray->kv[cnt]->key)*sizeof(*kvArray->kv[cnt]->key));
+    kvArray->kv[cnt]->value = realloc(kvArray->kv[cnt]->value, strlen(kvArray->kv[cnt]->key)*sizeof(*kvArray->kv[cnt]->key));
     line = NULL;
     cnt++;
   }
