@@ -33,6 +33,7 @@ kvarray_t * readKVs(const char * fname) {
     perror("Could not open file");
     exit(EXIT_FAILURE);
   }
+  kvArray->kv = NULL;
   while(getline(&line, &sz, f) >= 0){
     kvArray->kv = realloc(kvArray->kv, (cnt+1)*sizeof(*kvArray->kv));
     if(kvArray->kv == NULL){
